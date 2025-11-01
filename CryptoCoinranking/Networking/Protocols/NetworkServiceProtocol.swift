@@ -7,7 +7,11 @@
 
 import Foundation
 
-// 1. Protocol for Dependency Injection and Testing
+// Protocol for Dependency Injection and Testing
 protocol NetworkServiceProtocol {
     func fetchCoins(offset: Int, limit: Int) async throws -> CoinResponse
+    
+    // New methods for Coin Detail Page
+    func fetchCoinDetails(uuid: String) async throws -> CoinDetailResponse
+    func fetchCoinHistory(uuid: String, timePeriod: String) async throws -> CoinHistoryResponse
 }

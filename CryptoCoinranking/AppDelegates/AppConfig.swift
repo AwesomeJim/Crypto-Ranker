@@ -15,8 +15,8 @@ struct AppConfig {
         }
         return key
     }
-
-    // etrieves the Base URL from Info.plist
+    
+    // Retrieves the Base URL from Info.plist
     static var baseURL: String {
         guard let url = Bundle.main.object(forInfoDictionaryKey: "CoinRankingAPIBaseURL") as? String else {
             fatalError("CoinRankingAPIBaseURL must be set in Info.plist (via .xcconfig)")
@@ -24,4 +24,7 @@ struct AppConfig {
         return url
     }
     
+    
+    //Other necessary constants (like the USD UUID)
+    static let defaultReferenceCurrencyUUID: String = "yhjMzLPhuIDl"
 }

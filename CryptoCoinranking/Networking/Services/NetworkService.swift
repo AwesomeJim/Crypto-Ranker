@@ -67,4 +67,48 @@ class NetworkService: NetworkServiceProtocol {
         return try await fetch(url: url)
     }
     
+    // MARK: - Coin Detail Endpoints
+
+    func fetchCoinDetails(uuid: String) async throws -> CoinDetailResponse {
+        guard let url = URL(string: "\(AppConfig.baseURL)/coin/\(uuid)") else {
+            throw NetworkError.invalidURL
+        }
+        
+        // Add reference currency for consistency
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            throw NetworkError.invalidURL
+        }
+        urlComponents.queryItems = [
+            URLQueryItem(name: "referenceCurrencyUuid", value: AppConfig.defaultReferenceCurrencyUUID)
+        ]
+        
+        guard let finalURL = urlComponents.url else {
+            throw NetworkError.invalidURL
+        }
+        
+        return try await fetch(url: finalURL)
+    }
+
+    func fetchCoinHistory(uuid: String, timePeriod: String) async throws -> CoinHistoryResponse {
+        // timePeriod will be passed from the Detail View's segmented control (e.g., "7d", "30d")
+        guard let url = URL(string: "\(AppConfig.baseURL)/coin/\(uuid)/history") else {
+            throw NetworkError.invalidURL
+        }
+
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            throw NetworkError.invalidURL
+        }
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "timePeriod", value: timePeriod),
+            URLQueryItem(name: "referenceCurrencyUuid", value: AppConfig.defaultReferenceCurrencyUUID)
+        ]
+        
+        guard let finalURL = urlComponents.url else {
+            throw NetworkError.invalidURL
+        }
+        
+        return try await fetch(url: finalURL)
+    }
+    
 }

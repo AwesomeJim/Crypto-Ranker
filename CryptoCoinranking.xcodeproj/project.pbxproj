@@ -21,6 +21,10 @@
 		E3ED3ADD2EB66776006DF229 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3ADC2EB66773006DF229 /* NetworkService.swift */; };
 		E3ED3AE02EB667B5006DF229 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3ADF2EB667B2006DF229 /* NetworkError.swift */; };
 		E3ED3AE32EB66C48006DF229 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AE22EB66C40006DF229 /* AppConfig.swift */; };
+		E3ED3AE52EB67243006DF229 /* CoinDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AE42EB67240006DF229 /* CoinDetailResponse.swift */; };
+		E3ED3AE72EB67269006DF229 /* CoinDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AE62EB67267006DF229 /* CoinDetailData.swift */; };
+		E3ED3AE92EB6727F006DF229 /* CoinDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AE82EB6727D006DF229 /* CoinDetail.swift */; };
+		E3ED3AEB2EB67296006DF229 /* CoinLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AEA2EB67294006DF229 /* CoinLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,10 @@
 		E3ED3ADF2EB667B2006DF229 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E3ED3AE12EB66978006DF229 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		E3ED3AE22EB66C40006DF229 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		E3ED3AE42EB67240006DF229 /* CoinDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailResponse.swift; sourceTree = "<group>"; };
+		E3ED3AE62EB67267006DF229 /* CoinDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailData.swift; sourceTree = "<group>"; };
+		E3ED3AE82EB6727D006DF229 /* CoinDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetail.swift; sourceTree = "<group>"; };
+		E3ED3AEA2EB67294006DF229 /* CoinLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -312,6 +320,10 @@
 		E3ED3AD12EB66239006DF229 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3ED3AEA2EB67294006DF229 /* CoinLink.swift */,
+				E3ED3AE82EB6727D006DF229 /* CoinDetail.swift */,
+				E3ED3AE62EB67267006DF229 /* CoinDetailData.swift */,
+				E3ED3AE42EB67240006DF229 /* CoinDetailResponse.swift */,
 				E3ED3AD62EB663D6006DF229 /* CoinResponse.swift */,
 				E3ED3AD42EB6637A006DF229 /* CoinData.swift */,
 				E3ED3AD22EB6625D006DF229 /* Coin.swift */,
@@ -489,11 +501,15 @@
 			files = (
 				E3ED3AD52EB6637D006DF229 /* CoinData.swift in Sources */,
 				E3ED3AC62EB65B8F006DF229 /* AppDelegate.swift in Sources */,
+				E3ED3AE72EB67269006DF229 /* CoinDetailData.swift in Sources */,
 				E3ED3AE32EB66C48006DF229 /* AppConfig.swift in Sources */,
 				E3ED3AC72EB65B8F006DF229 /* SceneDelegate.swift in Sources */,
 				E3ED3AC82EB65B8F006DF229 /* ViewController.swift in Sources */,
 				E3ED3ADD2EB66776006DF229 /* NetworkService.swift in Sources */,
+				E3ED3AE52EB67243006DF229 /* CoinDetailResponse.swift in Sources */,
+				E3ED3AEB2EB67296006DF229 /* CoinLink.swift in Sources */,
 				E3ED3ADA2EB66725006DF229 /* NetworkServiceProtocol.swift in Sources */,
+				E3ED3AE92EB6727F006DF229 /* CoinDetail.swift in Sources */,
 				E3ED3AD32EB66262006DF229 /* Coin.swift in Sources */,
 				E3ED3AD72EB663D9006DF229 /* CoinResponse.swift in Sources */,
 				E3ED3AC92EB65B8F006DF229 /* CryptoCoinranking.xcdatamodeld in Sources */,
