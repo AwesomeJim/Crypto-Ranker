@@ -1,0 +1,15 @@
+//
+//  Config.xcconfig
+//  CryptoCoinranking
+//
+//  Created by Awesome Jim on 01/11/2025.
+//
+
+//
+// 1. Base URL
+SIMPLE_SLASH = /
+API_PROTOCOL = https:
+API_BASE_URL = $(API_PROTOCOL)$(SIMPLE_SLASH)$(SIMPLE_SLASH)api.coinranking.com$(API_PROTOCOL)v2
+
+// 2. API Key (Use your actual key here)
+COIN_RANKING_API_KEY = //
