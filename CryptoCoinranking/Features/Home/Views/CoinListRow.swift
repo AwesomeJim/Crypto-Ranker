@@ -19,12 +19,17 @@ struct ChartPoint: Identifiable {
 struct CoinListRow: View {
     let coin: Coin
     
+    private var coinBackgroundColor: Color {
+        // Use the coin's color, or fall back to a default dark gray
+        return Color(hex: coin.color ?? "#333333")
+    }
+    
     // Convert sparkline Strings to Double for Chart use
     private var chartData: [ChartPoint] {
         return coin.sparkline
             .compactMap { $0 } // Filter out nulls
             .compactMap { Double($0) } // Convert valid strings to Doubles
-            // The key change: use enumerated() to get the index (id)
+        // The key change: use enumerated() to get the index (id)
             .enumerated()
             .map { index, value in ChartPoint(id: index, value: value) }
     }
@@ -93,10 +98,9 @@ struct CoinListRow: View {
             
             // 3. Price and Change (Right Side)
             VStack(alignment: .trailing, spacing: 4) {
-                Text("USD \(coin.price?.toCurrencyFormat() ?? "N/A")")
+                Text("$ \(coin.price?.toCurrencyFormat() ?? "N/A")")
                     .font(.headline)
                     .foregroundColor(.black)
-                
                 HStack(spacing: 4) {
                     // Triangle for up/down
                     Image(systemName: Double(coin.change ?? "0") ?? 0 >= 0 ? "arrowtriangle.up.fill" : "arrowtriangle.down.fill")
@@ -108,9 +112,15 @@ struct CoinListRow: View {
                 .foregroundColor(changeColor)
             }
         }
-        // Set background color to match the design (e.g., dark gray/black)
-        .padding(.vertical, 8)
-        .background(Color(uiColor: .systemGray5).opacity(0.2))
+        // 1. Padding inside the card (keeps content away from card edges)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 16)
+        .background(coinBackgroundColor.opacity(0.15))
+        .cornerRadius(10)
+        
+        // 2.Padding outside the card (creates the margin)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 0)
     }
 }
 

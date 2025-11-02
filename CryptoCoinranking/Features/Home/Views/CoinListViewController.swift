@@ -55,8 +55,7 @@ final class CoinListViewController: UIViewController {
     // MARK: - Setup
     private func setupTableView() {
         tableView.delegate = self
-        tableView.dataSource = self // <-- Now uses UITableViewDataSource
-        // Register the new subclassed cell
+        tableView.dataSource = self
         tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
         tableView.separatorStyle = .none // Remove default separators for the card look
         tableView.backgroundColor = .clear
