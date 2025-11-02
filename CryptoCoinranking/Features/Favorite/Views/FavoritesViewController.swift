@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class FavoritesViewController: UIViewController{
-
+    
     // MARK: - Properties
     private var viewModel: FavoritesViewModel!
     private var detailFactory: DetailFactoryProtocol!
@@ -17,7 +18,9 @@ final class FavoritesViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
-   
+    // Add the hosting controller for the SwiftUI empty state
+    private lazy var emptyStateHost = UIHostingController(rootView: EmptyFavoritesView())
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         // We Inject dependencies since we are loading from Storyboard
@@ -63,12 +66,33 @@ final class FavoritesViewController: UIViewController{
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         activityIndicator.startAnimating()
+        
+        addChild(emptyStateHost)
+        view.addSubview(emptyStateHost.view)
+        emptyStateHost.didMove(toParent: self)
+        
+        // Setup constraints for the empty state to fill the view
+        emptyStateHost.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyStateHost.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateHost.view.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyStateHost.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            emptyStateHost.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+        ])
+        
+        // Start hidden
+         emptyStateHost.view.isHidden = true
     }
     
     private func bindViewModel() {
         viewModel.onUpdate = { [weak self] in
             guard let self = self else { return }
             self.activityIndicator.stopAnimating()
+            //
+            let isEmpty = self.viewModel.favoriteCoins.isEmpty
+            print("Favorite Coins \(isEmpty)")
+            self.emptyStateHost.view.isHidden = !isEmpty
+            
             self.tableView.reloadData()
         }
     }

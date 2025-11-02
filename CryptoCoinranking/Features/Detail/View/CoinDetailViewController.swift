@@ -68,6 +68,7 @@ final class CoinDetailViewController: UIViewController {
         // IMPORTANT: Make the hosting controller a child
         addChild(headerHost)
         headerHost.didMove(toParent: self)
+        
         // Configure Segmented Control
         timePeriodSegmentedControl.selectedSegmentIndex = TimePeriod.allCases.firstIndex(of: viewModel.currentPeriod) ?? 0
         timePeriodSegmentedControl.addTarget(self, action: #selector(timePeriodChanged), for: .valueChanged)
@@ -171,6 +172,7 @@ final class CoinDetailViewController: UIViewController {
     
     @objc private func toggleFavorite() {
         viewModel.toggleFavoriteStatus()
+        updateFavoriteButton()
     }
     
     private func updateFavoriteButton() {
