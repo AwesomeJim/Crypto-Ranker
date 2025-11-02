@@ -16,6 +16,8 @@ struct CoinDetail: Codable {
     let rank: Int
     let marketCap: String?
     let volume24h: String?
+    let change: String?
+    let color: String?
     
     // You'll need an array of links for 'Other Statistics'
     let links: [CoinLink]?

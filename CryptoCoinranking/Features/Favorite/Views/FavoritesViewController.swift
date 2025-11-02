@@ -10,7 +10,9 @@ import UIKit
 final class FavoritesViewController: UIViewController{
 
     // MARK: - Properties
-    private var viewModel: FavoritesViewModel! // <-- Uses the new ViewModel
+    private var viewModel: FavoritesViewModel!
+    private var detailFactory: DetailFactoryProtocol!
+    
     // MARK: UI Components
     @IBOutlet weak var tableView: UITableView!
     private let activityIndicator = UIActivityIndicatorView(style: .large)
@@ -18,12 +20,16 @@ final class FavoritesViewController: UIViewController{
    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        // 🔑 Inject dependencies here if loading from Storyboard
+        // We Inject dependencies since we are loading from Storyboard
         let networkService = NetworkService()
         let favoritesManager = FavoritesManager.shared
         
         // Initialize the ViewModel property
         self.viewModel = FavoritesViewModel(networkService: networkService, favoritesManager: favoritesManager)
+        self.detailFactory = CoinDetailFactory(
+            networkService: networkService,
+            favoritesManager: favoritesManager
+        )
     }
     
     // MARK: - View Lifecycle
@@ -91,8 +97,19 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCoin = viewModel.favoriteCoins[indexPath.row]
-        // TODO: Push to CoinDetailViewController (Same as Screen 1)
+        let coinUUID =  selectedCoin.uuid
         print("Tapped favorite coin: \(selectedCoin.name)")
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "CoinDetail") as? CoinDetailViewController
+        else { return }
+        
+        // 1. Use the factory to create the ViewModel
+        let detailViewModel = detailFactory.makeDetailViewModel(for: coinUUID)
+        // 2. Inject the ViewModel into the VC property
+        detailVC.viewModel = detailViewModel
+        
+        // 3. Push the fully configured View Controller
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     // Implement swipe-to-remove here

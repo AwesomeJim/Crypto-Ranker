@@ -16,21 +16,26 @@ final class CoinListViewController: UIViewController {
     
     // MARK: Dependencies
     private var viewModel: CoinListViewModel!
+    private var detailFactory: DetailFactoryProtocol!
     
     // MARK: UI Components
     @IBOutlet weak var tableView: UITableView!
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     // MARK: - Initialization (Dependency Injection)
-        
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        // 🔑 Inject dependencies here if loading from Storyboard
+        // Inject dependencies here since we are loading from Storyboard
         let networkService = NetworkService()
         let favoritesManager = FavoritesManager.shared
         
         // Initialize the ViewModel property
         self.viewModel = CoinListViewModel(networkService: networkService, favoritesManager: favoritesManager)
+        self.detailFactory = CoinDetailFactory(
+            networkService: networkService,
+            favoritesManager: favoritesManager
+        )
     }
     
     // MARK: - View Lifecycle
@@ -55,7 +60,7 @@ final class CoinListViewController: UIViewController {
         tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
         tableView.separatorStyle = .none // Remove default separators for the card look
         tableView.backgroundColor = .clear
-    
+        
     }
 }
 
@@ -106,8 +111,6 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate{
         }
         
         let coin = viewModel.currentCoins[indexPath.row]
-        print("Coin URL \n \(coin.iconUrl ?? "")")
-        // 2. Configure the cell using the new, clean method
         cell.configure(with: coin)
         
         return cell
@@ -130,8 +133,20 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCoin = viewModel.currentCoins[indexPath.row]
-        // TODO: Push to CoinDetailViewController
         print("Tapped coin: \(selectedCoin.name)")
+        let coinUUID =  selectedCoin.uuid
+        
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "CoinDetail") as? CoinDetailViewController
+        else { return }
+        
+        // 1. Use the factory to create the ViewModel
+        let detailViewModel = detailFactory.makeDetailViewModel(for: coinUUID)
+        // 2. Inject the ViewModel into the VC property
+        detailVC.viewModel = detailViewModel
+        
+        // 3. Push the fully configured View Controller
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     // MARK: - Swipe Actions (Favorites)

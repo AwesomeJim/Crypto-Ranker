@@ -45,4 +45,22 @@ enum CoinFilter: CaseIterable {
     }
 }
 
-
+enum TimePeriod: String, CaseIterable {
+    case oneDay = "1h" // Note: CoinRanking API uses "1h" for 24 hours
+    case sevenDays = "7d"
+    case thirtyDays = "30d"
+    case oneYear = "1y"
+    case threeYears = "3y"
+    case fiveYears = "5y"
+    
+    var title: String {
+        switch self {
+        case .oneDay: return "24H"
+        case .sevenDays: return "7D"
+        case .thirtyDays: return "30D"
+        case .oneYear: return "1Y"
+        case .threeYears: return "3Y"
+        case .fiveYears: return "5Y"
+        }
+    }
+}
