@@ -18,7 +18,7 @@ final class CoinListViewController: UIViewController {
     private var viewModel: CoinListViewModel!
     
     // MARK: UI Components
-    private var tableView: UITableView! // <-- Changed to UITableView
+    @IBOutlet weak var tableView: UITableView!
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     // MARK: - Initialization (Dependency Injection)
@@ -50,16 +50,13 @@ final class CoinListViewController: UIViewController {
     
     // MARK: - Setup
     private func setupTableView() {
-        tableView = UITableView(frame: view.bounds, style: .plain)
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.delegate = self
         tableView.dataSource = self // <-- Now uses UITableViewDataSource
         // Register the new subclassed cell
         tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
         tableView.separatorStyle = .none // Remove default separators for the card look
         tableView.backgroundColor = .clear
-        
-        view.addSubview(tableView)
+    
     }
 }
 
@@ -110,7 +107,7 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate{
         }
         
         let coin = viewModel.currentCoins[indexPath.row]
-        
+        print("Coin URL \n \(coin.iconUrl ?? "")")
         // 2. Configure the cell using the new, clean method
         cell.configure(with: coin)
         

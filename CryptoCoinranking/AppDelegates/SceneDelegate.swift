@@ -7,7 +7,7 @@
 
 import UIKit
 import SDWebImage
-import SDWebImageSVGCoder // ⬅️ Ensure this is imported
+import SDWebImageSVGCoder
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,8 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // 🔑 Critical Fix: Register the SVG Coder
-            // This tells SDWebImage how to handle files with the .svg extension.
+        // Fix: Register the SVG Coder
+        // This tells SDWebImage how to handle files with the .svg extension.
         SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.

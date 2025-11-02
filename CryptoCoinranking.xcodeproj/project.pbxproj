@@ -15,7 +15,6 @@
 		E3ED3AC42EB65B8F006DF229 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ED3ABD2EB65B8F006DF229 /* Main.storyboard */; };
 		E3ED3AC62EB65B8F006DF229 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AA82EB65B8F006DF229 /* AppDelegate.swift */; };
 		E3ED3AC72EB65B8F006DF229 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AA92EB65B8F006DF229 /* SceneDelegate.swift */; };
-		E3ED3AC82EB65B8F006DF229 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AAF2EB65B8F006DF229 /* ViewController.swift */; };
 		E3ED3AC92EB65B8F006DF229 /* CryptoCoinranking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AB82EB65B8F006DF229 /* CryptoCoinranking.xcdatamodeld */; };
 		E3ED3AD32EB66262006DF229 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AD22EB6625D006DF229 /* Coin.swift */; };
 		E3ED3AD52EB6637D006DF229 /* CoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ED3AD42EB6637A006DF229 /* CoinData.swift */; };
@@ -67,7 +66,6 @@
 		E3D7695E2EB643030058419C /* CryptoCoinrankingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoCoinrankingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3ED3AA82EB65B8F006DF229 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3ED3AA92EB65B8F006DF229 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E3ED3AAF2EB65B8F006DF229 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E3ED3AB32EB65B8F006DF229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3ED3ABA2EB65B8F006DF229 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3ED3ABC2EB65B8F006DF229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,15 +97,11 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E3D769572EB643030058419C /* CryptoCoinrankingTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = CryptoCoinrankingTests;
 			sourceTree = "<group>";
 		};
 		E3D769612EB643030058419C /* CryptoCoinrankingUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = CryptoCoinrankingUITests;
 			sourceTree = "<group>";
 		};
@@ -229,14 +223,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		E3ED3AB02EB65B8F006DF229 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E3ED3AAF2EB65B8F006DF229 /* ViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		E3ED3AB12EB65B8F006DF229 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +254,7 @@
 		E3ED3AB62EB65B8F006DF229 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E3ED3B3F2EB77637006DF229 /* StoryBoards */,
 				E3ED3AB52EB65B8F006DF229 /* Launcher */,
 				E3ED3AB22EB65B8F006DF229 /* Home */,
 				E3ED3AD02EB6605E006DF229 /* Detail */,
@@ -304,13 +291,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		E3ED3ABE2EB65B8F006DF229 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		E3ED3AC02EB65B8F006DF229 /* CryptoCoinranking */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,11 +298,9 @@
 				E3ED3AAA2EB65B8F006DF229 /* AppDelegates */,
 				E3ED3AB62EB65B8F006DF229 /* Features */,
 				E3ED3AAE2EB65B8F006DF229 /* Common */,
-				E3ED3AB02EB65B8F006DF229 /* Controller */,
 				E3ED3AB72EB65B8F006DF229 /* Networking */,
 				E3ED3AB92EB65B8F006DF229 /* Persistence */,
 				E3ED3ABB2EB65B8F006DF229 /* Resources */,
-				E3ED3ABE2EB65B8F006DF229 /* UI */,
 				E3ED3ABF2EB65B8F006DF229 /* Info.plist */,
 			);
 			path = CryptoCoinranking;
@@ -334,7 +312,6 @@
 				E3ED3B2F2EB73BE6006DF229 /* CoinTableViewCell.swift */,
 				E3ED3B2D2EB7383C006DF229 /* CoinListRow.swift */,
 				E3ED3AF62EB68999006DF229 /* CoinListViewController.swift */,
-				E3ED3ABD2EB65B8F006DF229 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -426,6 +403,14 @@
 				E3ED3AF12EB676BE006DF229 /* CoinFilter.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		E3ED3B3F2EB77637006DF229 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				E3ED3ABD2EB65B8F006DF229 /* Main.storyboard */,
+			);
+			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,9 +582,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking-CryptoCoinrankingUITests/Pods-CryptoCoinranking-CryptoCoinrankingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking-CryptoCoinrankingUITests/Pods-CryptoCoinranking-CryptoCoinrankingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -636,9 +625,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking/Pods-CryptoCoinranking-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking/Pods-CryptoCoinranking-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -681,7 +674,6 @@
 				E3ED3AE32EB66C48006DF229 /* AppConfig.swift in Sources */,
 				E3ED3AC72EB65B8F006DF229 /* SceneDelegate.swift in Sources */,
 				E3ED3B2E2EB73847006DF229 /* CoinListRow.swift in Sources */,
-				E3ED3AC82EB65B8F006DF229 /* ViewController.swift in Sources */,
 				E3ED3ADD2EB66776006DF229 /* NetworkService.swift in Sources */,
 				E3ED3AEF2EB6764A006DF229 /* CoinListViewModel.swift in Sources */,
 				E3ED3AE52EB67243006DF229 /* CoinDetailResponse.swift in Sources */,

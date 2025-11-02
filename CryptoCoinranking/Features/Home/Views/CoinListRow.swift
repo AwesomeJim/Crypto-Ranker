@@ -24,7 +24,7 @@ struct CoinListRow: View {
         return coin.sparkline
             .compactMap { $0 } // Filter out nulls
             .compactMap { Double($0) } // Convert valid strings to Doubles
-        // The key change: use enumerated() to get the index (id)
+            // The key change: use enumerated() to get the index (id)
             .enumerated()
             .map { index, value in ChartPoint(id: index, value: value) }
     }
@@ -43,7 +43,7 @@ struct CoinListRow: View {
                 WebImage(url: URL(string: coin.iconUrl ?? "")){ image in
                     image.image?.resizable()
                 }
-                // ⚠️ CRITICAL: Must use the .onSuccess modifier to enable SVG decoding
+                // Must use the .onSuccess modifier to enable SVG decoding
                 .onSuccess { image, data, cacheType in
                     // This block ensures the SVG decoder runs successfully
                     // SDWebImage relies on the SDWebImageSVGCoder for this
@@ -123,7 +123,7 @@ struct CoinListRow: View {
         rank: 1,
         name: "Bitcoin",
         symbol: "BTC",
-        iconUrl: "https://cdn.coinranking.com/Sy33Krudb/btc.svg",
+        iconUrl: "https://cdn.coinranking.com/UJ-dQdgYY/8085.png",
         price: "65432.12345",
         change: "-1.57", // Negative change for visual test
         marketCap: "1287654321234",
@@ -148,7 +148,7 @@ struct CoinListRow: View {
             rank: 2,
             name: "Ethereum",
             symbol: "ETH",
-            iconUrl: "https://cdn.coinranking.com/mgHqwlCLj/usdt.svg",
+            iconUrl: "https://cdn.coinranking.com/iImvX5-OG/5426.png",
             price: "3997.654",
             change: "2.89",
             marketCap: "450987654321",
