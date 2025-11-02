@@ -45,6 +45,7 @@ final class FavoritesViewController: UIViewController{
         Task { await viewModel.fetchFavoriteCoins() }
     }
     
+    
     private func setupUI() {
         view.backgroundColor = .systemBackground
         tableView.delegate = self
@@ -116,16 +117,14 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let coin = viewModel.favoriteCoins[indexPath.row]
         
-        let removeAction = UIContextualAction(style: .destructive, title: "Remove") { [weak self] (_, _, completion) in
+        let removeAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completion) in
             // Unfavorite the coin
             self?.viewModel.toggleFavoriteStatus(for: coin)
-            
             // The notification observer in the ViewModel will trigger a refetch and reload
             completion(true)
         }
-        
+        removeAction.image = UIImage(systemName: "trash.fill")
         removeAction.backgroundColor = .systemRed
-        
         return UISwipeActionsConfiguration(actions: [removeAction])
     }
 }

@@ -6,8 +6,13 @@
 //
 import UIKit
 import SwiftUI
+internal import Combine
 
 final class CoinDetailViewController: UIViewController {
+    
+    
+    //Store Combine subscriptions here
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Dependencies
     var viewModel: CoinDetailViewModel!
@@ -18,13 +23,12 @@ final class CoinDetailViewController: UIViewController {
     private let timePeriodSegmentedControl = UISegmentedControl(items: TimePeriod.allCases.map { $0.title })
     private let detailLabel = UILabel()
     private let chartHostView = UIView() // Host for the SwiftUI Chart
-    private let priceLabel = UILabel()
-    private let rankLabel = UILabel()
-    private let changeLabel = UILabel()
     
     required init?(coder: NSCoder) {
-            // Must call super.init(coder:) when loading from a Storyboard.
-            super.init(coder: coder)
+        // Must call super.init(coder:) when loading from a Storyboard.
+        super.init(coder: coder)
+        //Hide the bottom tab bar when pushed onto the stack
+        self.hidesBottomBarWhenPushed = true
     }
     
     // MARK: - View Lifecycle
@@ -39,6 +43,8 @@ final class CoinDetailViewController: UIViewController {
         Task { await viewModel.fetchAllData() }
     }
     
+    
+    
     // MARK: - Setup
     
     private func setupLayout() {
@@ -49,18 +55,19 @@ final class CoinDetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.alignment = .fill
-        
-        // Add Price/Rank/Change summary
-        let summaryStack = UIStackView(arrangedSubviews: [priceLabel, changeLabel, rankLabel])
-        summaryStack.axis = .horizontal
-        summaryStack.distribution = .equalSpacing
-        
-        // Configure Labels
-        priceLabel.font = .systemFont(ofSize: 32, weight: .bold)
-        changeLabel.font = .systemFont(ofSize: 18)
-        rankLabel.font = .systemFont(ofSize: 18)
         detailLabel.numberOfLines = 0
         
+        // Replace UIKit summary with SwiftUI Header
+        let headerHost = UIHostingController(rootView: CoinDetailHeaderView(viewModel: viewModel))
+        
+        // Add the header view
+        stackView.addArrangedSubview(headerHost.view)
+        headerHost.view.translatesAutoresizingMaskIntoConstraints = false
+        headerHost.view.backgroundColor = .clear // Ensure transparent background
+        
+        // IMPORTANT: Make the hosting controller a child
+        addChild(headerHost)
+        headerHost.didMove(toParent: self)
         // Configure Segmented Control
         timePeriodSegmentedControl.selectedSegmentIndex = TimePeriod.allCases.firstIndex(of: viewModel.currentPeriod) ?? 0
         timePeriodSegmentedControl.addTarget(self, action: #selector(timePeriodChanged), for: .valueChanged)
@@ -69,7 +76,7 @@ final class CoinDetailViewController: UIViewController {
         scrollView.addSubview(stackView)
         view.addSubview(scrollView)
         
-        stackView.addArrangedSubview(summaryStack)
+        
         stackView.addArrangedSubview(timePeriodSegmentedControl)
         stackView.addArrangedSubview(chartHostView)
         stackView.addArrangedSubview(detailLabel)
@@ -98,27 +105,26 @@ final class CoinDetailViewController: UIViewController {
     // MARK: - Binding
     
     private func bindViewModel() {
-        // Update static details (name, price, rank, description)
-        viewModel.onDetailsUpdate = { [weak self] in
-            guard let self = self, let details = self.viewModel.coinDetails else { return }
-            
-            self.navigationItem.title = details.name
-            self.priceLabel.text = self.viewModel.formattedPrice
-            self.rankLabel.text = self.viewModel.formattedRank
-            self.changeLabel.text = self.viewModel.formattedChange
-            self.detailLabel.text = details.description?.htmlToString // NOTE: Requires a String extension for HTML formatting
-            
-            // Set the change color
-            let isPositive = Double(details.change ?? "0") ?? 0 >= 0
-            self.changeLabel.textColor = isPositive ? .systemGreen : .systemRed
-            
-            self.updateFavoriteButton()
-        }
+        // 1. Subscription to coinHistory changes
+        viewModel.$coinHistory
+            .receive(on: DispatchQueue.main) // Ensure UI updates are on the main thread
+            .sink { [weak self] _ in
+                // This block is executed every time coinHistory changes (after a fetch or segment change)
+                self?.embedChartView()
+            }
+            .store(in: &cancellables) // Store the subscription
         
-        // Update the chart view
-        viewModel.onHistoryUpdate = { [weak self] in
-            self?.embedChartView()
-        }
+        // 2. Subscription to static details (optional, as the SwiftUI header handles most of this)
+        viewModel.$coinDetails
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] details in
+                guard let self = self, let details = details else { return }
+                
+                self.navigationItem.title = details.name
+                self.detailLabel.text = details.description?.htmlToString
+                self.updateFavoriteButton()
+            }
+            .store(in: &cancellables)
     }
     
     private func embedChartView() {
@@ -169,7 +175,10 @@ final class CoinDetailViewController: UIViewController {
     
     private func updateFavoriteButton() {
         let imageName = viewModel.isFavorite ? "heart.fill" : "heart"
-        navigationItem.rightBarButtonItem?.image = UIImage(systemName: imageName)
+        let button = navigationItem.rightBarButtonItem
+        //Set the tint color to green for visibility and positive action
+        button?.tintColor = .systemGreen
+        button?.image = UIImage(systemName: imageName)
     }
 }
 

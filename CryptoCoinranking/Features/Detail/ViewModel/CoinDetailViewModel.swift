@@ -6,8 +6,9 @@
 //
 
 import Foundation
+internal import Combine
 
-final class CoinDetailViewModel {
+final class CoinDetailViewModel: ObservableObject{
     
     // MARK: - Dependencies & State
     
@@ -15,18 +16,10 @@ final class CoinDetailViewModel {
     private let favoritesManager: FavoritesManagerProtocol
     private let coinUUID: String // The ID passed from the list screen
     
-    // Observable properties to update the View Controller
-    var onDetailsUpdate: (() -> Void)?
-    var onHistoryUpdate: (() -> Void)?
-    
     // Data Sources for the View Controller
-    private(set) var coinDetails: CoinDetail? {
-        didSet { onDetailsUpdate?() }
-    }
-    
-    private(set) var coinHistory: [HistoryPoint] = [] {
-        didSet { onHistoryUpdate?() }
-    }
+    //Change closures to published properties
+    @Published var coinDetails: CoinDetail?
+    @Published private(set) var coinHistory: [HistoryPoint] = []
     
     // User interaction state
     private(set) var currentPeriod: TimePeriod = .sevenDays
@@ -94,7 +87,6 @@ final class CoinDetailViewModel {
             favoritesManager.addFavorite(uuid: coinUUID)
         }
         // Notify the VC that the favorite status has changed, so the button can update.
-        onDetailsUpdate?()
     }
     
     // MARK: - Formatting and Presentation Helpers

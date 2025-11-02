@@ -162,8 +162,8 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate{
             tableView.reloadRows(at: [indexPath], with: .automatic)
             completionHandler(true)
         }
-        
-        action.backgroundColor = isFavorite ? .systemGray : .systemOrange
+        action.image = isFavorite ? UIImage(systemName: "trash.fill") : UIImage(systemName: "heart.fill")
+        action.backgroundColor = isFavorite ? .systemRed: .systemGreen
         return UISwipeActionsConfiguration(actions: [action])
     }
 }
