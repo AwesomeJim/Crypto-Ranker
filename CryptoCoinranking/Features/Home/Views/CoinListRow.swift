@@ -24,7 +24,7 @@ struct CoinListRow: View {
         return coin.sparkline
             .compactMap { $0 } // Filter out nulls
             .compactMap { Double($0) } // Convert valid strings to Doubles
-            // The key change: use enumerated() to get the index (id)
+        // The key change: use enumerated() to get the index (id)
             .enumerated()
             .map { index, value in ChartPoint(id: index, value: value) }
     }
@@ -40,16 +40,20 @@ struct CoinListRow: View {
         HStack {
             // 1. Coin Icon and Name (Left Side)
             HStack(spacing: 12) {
-                WebImage(url: URL(string: coin.iconUrl ?? ""))
-                    .resizable()
+                WebImage(url: URL(string: coin.iconUrl ?? "")){ image in
+                    image.image?.resizable()
+                }
                 // ⚠️ CRITICAL: Must use the .onSuccess modifier to enable SVG decoding
-                    .onSuccess { image, data, cacheType in
-                        // This block ensures the SVG decoder runs successfully
-                        // SDWebImage relies on the SDWebImageSVGCoder for this
-                    }
-                    .indicator(.activity) // Show a loading indicator
-                    .frame(width: 32, height: 32)
-                    .clipShape(Circle())
+                .onSuccess { image, data, cacheType in
+                    // This block ensures the SVG decoder runs successfully
+                    // SDWebImage relies on the SDWebImageSVGCoder for this
+                }
+                .onFailure{error in
+                    print("Error Loading Image \(error) \n \(coin.iconUrl ?? "")")
+                }
+                .indicator(.activity) // Show a loading indicator
+                .frame(width: 32, height: 32)
+                .clipShape(Circle())
                 VStack(alignment: .leading, spacing: 4) {
                     Text(coin.symbol)
                         .font(.headline)
@@ -160,6 +164,6 @@ struct CoinListRow: View {
         Spacer()
     }
     // Apply a dark background to match the application's look
-    .background(Color.black)
+    .background(Color.white)
     .preferredColorScheme(.light)
 }

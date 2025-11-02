@@ -7,6 +7,7 @@ target 'CryptoCoinranking' do
 
   # Pods for CryptoCoinranking
   pod 'SDWebImageSwiftUI'
+  pod 'SDWebImageSVGCoder'
 
   target 'CryptoCoinrankingTests' do
     inherit! :search_paths

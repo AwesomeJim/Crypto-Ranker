@@ -99,11 +99,15 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E3D769572EB643030058419C /* CryptoCoinrankingTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = CryptoCoinrankingTests;
 			sourceTree = "<group>";
 		};
 		E3D769612EB643030058419C /* CryptoCoinrankingUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = CryptoCoinrankingUITests;
 			sourceTree = "<group>";
 		};
@@ -593,13 +597,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking-CryptoCoinrankingUITests/Pods-CryptoCoinranking-CryptoCoinrankingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking-CryptoCoinrankingUITests/Pods-CryptoCoinranking-CryptoCoinrankingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -636,13 +636,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking/Pods-CryptoCoinranking-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking/Pods-CryptoCoinranking-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
