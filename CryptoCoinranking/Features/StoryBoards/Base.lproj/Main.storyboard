@@ -22,23 +22,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="201"/>
+            <point key="canvasLocation" x="1853" y="-168"/>
         </scene>
-        <!--Watch List-->
-        <scene sceneID="C9O-qn-n2o">
+        <!--My Crypto Watchlist-->
+        <scene sceneID="hBG-mo-V9t">
             <objects>
-                <viewController id="7dG-Bo-8pq" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="r0h-U0-qzV">
+                <tableViewController id="vl2-Fu-q8R" customClass="FavoritesViewController" customModule="CryptoCoinranking" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="N9N-m5-5qp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="eZe-6u-bfy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Watch List" image="star.circle" catalog="system" id="fcD-34-r4a"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LnH-z2-i99" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3Lb-EY-M3I">
+                                <rect key="frame" x="0.0" y="50" width="393" height="51"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Lb-EY-M3I" id="0as-Hf-PcH">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="51"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vl2-Fu-q8R" id="kVP-3f-C4e"/>
+                            <outlet property="delegate" destination="vl2-Fu-q8R" id="1Wp-02-kTQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Crypto Watchlist" id="yjB-Gj-dVD"/>
+                    <connections>
+                        <outlet property="tableView" destination="N9N-m5-5qp" id="9wh-4U-vLf"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFr-gL-NPH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-263" y="-535"/>
+            <point key="canvasLocation" x="708" y="-615"/>
+        </scene>
+        <!--Watchlist-->
+        <scene sceneID="JuG-1b-v3Y">
+            <objects>
+                <navigationController id="Klx-Vo-Oeb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Watchlist" image="star.circle" catalog="system" id="hfH-gN-SQl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Y4-oI-Oxn">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vl2-Fu-q8R" kind="relationship" relationship="rootViewController" id="4zM-hA-be4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgp-xi-IjG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-198" y="-615"/>
         </scene>
         <!--The Crypto Rank-->
         <scene sceneID="lxD-mT-xAl">
@@ -70,7 +103,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEw-ZO-93a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="579" y="201"/>
+            <point key="canvasLocation" x="744" y="201"/>
         </scene>
         <!--Crypto-->
         <scene sceneID="pUJ-h3-qfa">
@@ -100,7 +133,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="3ax-2T-MWD" kind="relationship" relationship="viewControllers" id="yCn-lf-OFk"/>
-                        <segue destination="7dG-Bo-8pq" kind="relationship" relationship="viewControllers" id="CVG-Y2-xzD"/>
+                        <segue destination="Klx-Vo-Oeb" kind="relationship" relationship="viewControllers" id="cvF-5W-C6Y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ify-3G-A7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

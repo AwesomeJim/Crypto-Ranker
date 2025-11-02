@@ -31,7 +31,6 @@ final class CoinListViewController: UIViewController {
         
         // Initialize the ViewModel property
         self.viewModel = CoinListViewModel(networkService: networkService, favoritesManager: favoritesManager)
-        // fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - View Lifecycle
