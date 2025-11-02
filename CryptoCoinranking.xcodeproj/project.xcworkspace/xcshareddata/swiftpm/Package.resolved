@@ -1,0 +1,24 @@
+{
+  "originHash" : "ad61c38e0ebb85cf693e936e20cea89122d8ed90be4a5669b054009197868578",
+  "pins" : [
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "4d75de347da985a70c63af4d799ed482021f6733",
+        "version" : "8.6.1"
+      }
+    },
+    {
+      "identity" : "kingfishersvg",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/octree/KingfisherSVG.git",
+      "state" : {
+        "revision" : "6d596e67d4a59d4f5b0beb5a98c2eb6599ec41da",
+        "version" : "2.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}
