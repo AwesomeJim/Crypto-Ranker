@@ -1,0 +1,6 @@
+framework module SwiftUICharts {
+  umbrella header "SwiftUICharts-umbrella.h"
+
+  export *
+  module * { export * }
+}

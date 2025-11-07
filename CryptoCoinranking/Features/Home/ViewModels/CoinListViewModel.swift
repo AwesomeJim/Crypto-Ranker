@@ -62,7 +62,7 @@ final class CoinListViewModel {
             applyFilter(currentFilter)
             
         } catch {
-            print("Failed to fetch coins: \(error.localizedDescription)")
+            logInfo("Failed to fetch coins: \(error.localizedDescription)")
             // In a real app, you'd communicate this error to the View
         }
         
@@ -104,7 +104,7 @@ final class CoinListViewModel {
         }
     }
     
-    /// Check favorite status for UI display (e.g., cell icon)
+    
     func isFavorite(coin: Coin) -> Bool {
         return favoritesManager.isFavorite(uuid: coin.uuid)
     }

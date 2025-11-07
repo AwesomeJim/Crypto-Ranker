@@ -14,18 +14,13 @@ enum CoinFilter: CaseIterable {
     
     
     // MARK: - CaseIterable Conformance
-    // You must manually define all valid cases because of the associated values.
+   
     static var allCases: [CoinFilter] {
         return [
             // List the primary options the user will see in the filter menu
             .marketCap(.descending),
             .price(.descending),
             .change24h(.descending)
-            
-            // You can optionally add ascending options here if you want them
-            // visible in the primary menu:
-            // .price(.ascending),
-            // .change24h(.ascending)
         ]
     }
     
@@ -46,7 +41,7 @@ enum CoinFilter: CaseIterable {
 }
 
 enum TimePeriod: String, CaseIterable {
-    case oneDay = "1h" // Note: CoinRanking API uses "1h" for 24 hours
+    case oneDay = "1h" 
     case sevenDays = "7d"
     case thirtyDays = "30d"
     case oneYear = "1y"

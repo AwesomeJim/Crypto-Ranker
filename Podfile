@@ -8,6 +8,7 @@ target 'CryptoCoinranking' do
   # Pods for CryptoCoinranking
   pod 'SDWebImageSwiftUI'
   pod 'SDWebImageSVGCoder'
+  pod "SwiftUICharts", :git => 'https://github.com/willdale/SwiftUICharts.git'
 
   target 'CryptoCoinrankingTests' do
     inherit! :search_paths

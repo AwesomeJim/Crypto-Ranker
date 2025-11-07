@@ -6,45 +6,42 @@
 //
 
 import UIKit
-import SwiftUI // For hosting the chart/time controls
-import Charts // For the chart view
+import SwiftUI 
+import SwiftUICharts
 
 // We define a simple SwiftUI view to wrap the chart logic
 struct CoinChartView: View {
     let history: [HistoryPoint]
     let color: String // Use the coin's color for the chart line
     
-    // Convert HistoryPoint to ChartPoint for SwiftUI Charts
-    private var chartData: [ChartPoint] {
-        return history.enumerated()
-            .compactMap { index, point in
-                guard let price = Double(point.price ?? "0") else { return nil }
-                return ChartPoint(id: index, value: price)
-            }
+    private var coinBackgroundColor: Color {
+        // Use the coin's color
+        return Color(hex: color)
     }
     
-    // Determine the line color from the hex string
-    private var lineColor: Color {
-        // NOTE: A real implementation requires a Hex to UIColor/Color converter
-        return color.isEmpty ? .blue : .purple // Placeholder color
+    
+    private var chartData: LineChartData {
+        // 1. Convert sparkline strings to Doubles
+        let points = history.compactMap { Double($0.price ?? "") }
+        
+        // 2. Create a DataSet and the final LineChartData
+        let dataSet = LineDataSet(
+            dataPoints: points.map { LineChartDataPoint(value: $0) },
+            pointStyle: PointStyle(), // Default point style
+            style: LineStyle(lineColour: ColourStyle(colour: coinBackgroundColor), lineType: .curvedLine)
+        )
+        
+        return LineChartData(dataSets: dataSet)
     }
+    
 
     var body: some View {
-        if #available(iOS 16.0, *) {
-            Chart(chartData) { point in
-                LineMark(
-                    x: .value("Time", point.id),
-                    y: .value("Price", point.value)
-                )
-                .interpolationMethod(.monotone)
-                .foregroundStyle(lineColor)
-            }
-            .chartYAxis(.hidden)
-            .chartXAxis(.hidden)
-            .frame(height: 200)
-            .padding()
-        } else {
-            Text("Charts require iOS 16+")
+        VStack {
+            LineChart(chartData: chartData)
+            // Set the ID to force SwiftUI to redraw when data changes
+                .id(chartData.id)
+                .frame(height: 200)
+                .padding()
         }
     }
 }

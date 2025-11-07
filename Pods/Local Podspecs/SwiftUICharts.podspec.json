@@ -1,0 +1,27 @@
+{
+  "name": "SwiftUICharts",
+  "version": "2.10.2",
+  "summary": "A charts / plotting library for SwiftUI.",
+  "description": "A charts / plotting library for SwiftUI. Works on macOS, iOS, watchOS, and tvOS and has accessibility features built in.",
+  "homepage": "https://github.com/willdale/SwiftUICharts",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "willdale": "www.linkedin.com/in/willdale-dev"
+  },
+  "source": {
+    "git": "https://github.com/willdale/SwiftUICharts.git",
+    "tag": "2.10.2"
+  },
+  "platforms": {
+    "ios": "14.0",
+    "tvos": "14.0",
+    "watchos": "7.0",
+    "osx": "11.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "Sources/SwiftUICharts/**/*",
+  "swift_version": "5.0"
+}

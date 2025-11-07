@@ -1,5 +1,5 @@
 //
-//  CoinDetailFactory.swift
+//  DetailFactoryProtocol.swift
 //  CryptoCoinranking
 //
 //  Created by Awesome Jim on 02/11/2025.
@@ -7,10 +7,8 @@
 
 import UIKit
 
-// CoinDetailFactory.swift
-
 protocol DetailFactoryProtocol {
-    // 🔑 Factory now returns the ViewModel, not the fully assembled VC
+    // Factory returns the ViewModel, not the fully assembled VC
     func makeDetailViewModel(for coinUUID: String) -> CoinDetailViewModel
 }
 

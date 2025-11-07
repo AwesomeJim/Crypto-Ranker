@@ -110,7 +110,6 @@ final class CoinDetailViewController: UIViewController {
         viewModel.$coinHistory
             .receive(on: DispatchQueue.main) // Ensure UI updates are on the main thread
             .sink { [weak self] _ in
-                // This block is executed every time coinHistory changes (after a fetch or segment change)
                 self?.embedChartView()
             }
             .store(in: &cancellables) // Store the subscription
@@ -122,7 +121,7 @@ final class CoinDetailViewController: UIViewController {
                 guard let self = self, let details = details else { return }
                 
                 self.navigationItem.title = details.name
-                self.detailLabel.text = details.description?.htmlToString
+                self.detailLabel.text = "About: \(details.name) \n \(details.description?.htmlToString ?? details.name)"
                 self.updateFavoriteButton()
             }
             .store(in: &cancellables)
@@ -134,7 +133,7 @@ final class CoinDetailViewController: UIViewController {
         
         let chartView = CoinChartView(
             history: viewModel.coinHistory,
-            color: viewModel.coinDetails?.color ?? ""
+            color: viewModel.coinDetails?.color ?? "#333333"
         )
         
         let hostingController = UIHostingController(rootView: chartView)
@@ -151,9 +150,7 @@ final class CoinDetailViewController: UIViewController {
             hostingController.view.trailingAnchor.constraint(equalTo: chartHostView.trailingAnchor),
             hostingController.view.topAnchor.constraint(equalTo: chartHostView.topAnchor),
             hostingController.view.bottomAnchor.constraint(equalTo: chartHostView.bottomAnchor),
-            
-            // Give the host view a height constraint if needed, but the SwiftUI view
-            // has a frame(height: 200) which should suffice.
+        
             chartHostView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }

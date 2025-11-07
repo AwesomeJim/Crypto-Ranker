@@ -57,7 +57,7 @@ final class CoinListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
-        tableView.separatorStyle = .none // Remove default separators for the card look
+        tableView.separatorStyle = .none 
         tableView.backgroundColor = .clear
         
     }
@@ -85,9 +85,9 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate{
         viewModel.onUpdate = { [weak self] in
             guard let self = self else { return }
             self.activityIndicator.stopAnimating()
+            logInfo("currentCoins \(viewModel.currentCoins.count)")
             
-            // The ViewModel updates the currentCoins array.
-            // We now tell the UITableView to refresh its data based on the updated array.
+            // Reload table data
             self.tableView.reloadData()
             
             // We can stop the indicator *after* the first data load
@@ -118,11 +118,11 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate{
     // MARK: - Delegate (Pagination and Navigation)
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90 // Increase height to accommodate the chart and padding
+        return 90 // Row height to accommodate the chart and padding
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // Pagination logic remains the same
+
         let coinCount = viewModel.currentCoins.count
         if indexPath.row >= coinCount - 5 {
             Task { await viewModel.fetchNextPage() }
@@ -139,12 +139,11 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate{
             .instantiateViewController(withIdentifier: "CoinDetail") as? CoinDetailViewController
         else { return }
         
-        // 1. Use the factory to create the ViewModel
+        
         let detailViewModel = detailFactory.makeDetailViewModel(for: coinUUID)
-        // 2. Inject the ViewModel into the VC property
+        
         detailVC.viewModel = detailViewModel
         
-        // 3. Push the fully configured View Controller
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

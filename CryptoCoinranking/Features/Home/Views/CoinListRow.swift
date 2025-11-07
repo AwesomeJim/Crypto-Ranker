@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
-import Charts // Requires Swift Charts framework (iOS 16+)
+import SwiftUICharts
 
 // A simple structure to hold only the data required for the sparkline chart
 struct ChartPoint: Identifiable {
@@ -24,14 +24,19 @@ struct CoinListRow: View {
         return Color(hex: coin.color ?? "#333333")
     }
     
-    // Convert sparkline Strings to Double for Chart use
-    private var chartData: [ChartPoint] {
-        return coin.sparkline
-            .compactMap { $0 } // Filter out nulls
-            .compactMap { Double($0) } // Convert valid strings to Doubles
-        // The key change: use enumerated() to get the index (id)
-            .enumerated()
-            .map { index, value in ChartPoint(id: index, value: value) }
+    
+    private var chartData: LineChartData {
+        // 1. Convert sparkline strings to Doubles
+        let points = coin.sparkline.compactMap { Double($0 ?? "") }
+        
+        // 2. Create a DataSet and the final LineChartData
+        let dataSet = LineDataSet(
+            dataPoints: points.map { LineChartDataPoint(value: $0) },
+            pointStyle: PointStyle(),
+            style: LineStyle(lineColour: ColourStyle(colour: coinBackgroundColor), lineType: .line)
+        )
+        
+        return LineChartData(dataSets: dataSet)
     }
     
     // Determine the color for the percentage change and the sparkline
@@ -48,7 +53,7 @@ struct CoinListRow: View {
                 WebImage(url: URL(string: coin.iconUrl ?? "")){ image in
                     image.image?.resizable()
                 }
-                // Must use the .onSuccess modifier to enable SVG decoding
+                //use the .onSuccess modifier to enable SVG decoding
                 .onSuccess { image, data, cacheType in
                     // This block ensures the SVG decoder runs successfully
                     // SDWebImage relies on the SDWebImageSVGCoder for this
@@ -70,29 +75,13 @@ struct CoinListRow: View {
                 
             }
             Spacer()
-            
             // 2. Sparkline Chart (Middle)
-            Group {
-                if #available(iOS 16.0, *) { // Charts is available in iOS 16+
-                    Chart(chartData) { point in
-                        LineMark(
-                            x: .value("Index", chartData.firstIndex(where: { $0.id == point.id }) ?? 0),
-                            y: .value("Price", point.value)
-                        )
-                        .interpolationMethod(.monotone)
-                        .foregroundStyle(changeColor) // Match chart color to change
-                    }
-                    .chartYAxis(.hidden)
-                    .chartXAxis(.hidden)
-                } else {
-                    // Fallback view for older OS versions
-                    Text("Graph Unavailable")
-                        .font(.caption2)
-                        .foregroundColor(.gray)
-                }
+            VStack {
+                LineChart(chartData: chartData)
+                // Set the ID to force SwiftUI to redraw when data changes
+                    .id(chartData.id)
+                    .frame(width: 80, height: 40) // Ensure it fits in the row
             }
-            .frame(width: 80, height: 40)
-            .padding(.horizontal, 10)
             
             Spacer()
             
@@ -112,7 +101,7 @@ struct CoinListRow: View {
                 .foregroundColor(changeColor)
             }
         }
-        // 1. Padding inside the card (keeps content away from card edges)
+        // 1. Padding inside the card
         .padding(.horizontal, 8)
         .padding(.vertical, 16)
         .background(coinBackgroundColor.opacity(0.15))
@@ -126,8 +115,6 @@ struct CoinListRow: View {
 
 
 #Preview {
-    // 1. Create a concrete instance of a Coin model for the preview
-    // NOTE: This sample data must perfectly match the structure of your Coin struct.
     let sampleCoin = Coin(
         uuid: "Qwsogvtv82FCd",
         rank: 1,
@@ -138,16 +125,16 @@ struct CoinListRow: View {
         change: "-1.57", // Negative change for visual test
         marketCap: "1287654321234",
         color: "#f7931A",
-        // Sample sparkline data (strings) with a mix of values for the chart
+        // Sample sparkline data
         sparkline: [
             "9515.0454185372",
             "9540.1812284677",
             "9554.2212643043",
-            "9593.571539283"
+            "9593.571539283",
         ]
     )
     
-    // 2. Wrap the CoinListRow in a container (like a VStack) for context
+    
     VStack {
         Spacer()
         // Coin with negative change (red/down)
@@ -173,7 +160,6 @@ struct CoinListRow: View {
         ))
         Spacer()
     }
-    // Apply a dark background to match the application's look
     .background(Color.white)
     .preferredColorScheme(.light)
 }

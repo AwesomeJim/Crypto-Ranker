@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct CoinDetailHeaderView: View {
     
-    @ObservedObject var viewModel: CoinDetailViewModel // Use ObservableObject if SwiftUI needs to react to changes
+    @ObservedObject var viewModel: CoinDetailViewModel
     
     var body: some View {
         VStack(spacing: 8) {
@@ -77,9 +77,7 @@ struct CoinDetailHeaderView: View {
 }
 
 #Preview {
-    // 1. Create Mock Dependencies
-    // Since this is just for the UI, we can use placeholder mocks.
-    // NOTE: In a real project, you'd use dedicated Mock classes for tests/previews.
+    
     let mockNetwork = MockNetworkService()
     let mockFavorites = FavoritesManager.shared
     
@@ -90,8 +88,6 @@ struct CoinDetailHeaderView: View {
         favoritesManager: mockFavorites
     )
     
-    // 3. Manually set the required CoinDetail data for the preview
-    // We use a specific instance here to ensure the preview updates immediately.
     let sampleDetail = CoinDetail(
         uuid: "btc-bitcoin",
         name: "Bitcoin",
@@ -113,11 +109,17 @@ struct CoinDetailHeaderView: View {
     
     // Example for a positive change coin
     let positiveDetail = CoinDetail(
-        uuid: "eth-ethereum", name: "Ethereum", symbol: "ETH", description: "",
+        uuid: "eth-ethereum",
+        name: "Ethereum",
+        symbol: "ETH",
+        description: "",
         iconUrl: "https://cdn.coinranking.com/B1pE_D9Yy/ethereum.svg",
         websiteUrl: "https://bitcoin.org",
-        price: "4200.75", rank: 2, marketCap: "500000000000",
-        volume24h: "8500000000",change: "1.98",
+        price: "4200.75",
+        rank: 2,
+        marketCap: "500000000000",
+        volume24h: "8500000000",
+        change: "-1.98",
         color: "#627EEA",
         links: []
     )

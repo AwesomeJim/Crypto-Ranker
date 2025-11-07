@@ -38,6 +38,7 @@ class NetworkService: NetworkServiceProtocol {
             let decoder = JSONDecoder()
             return try decoder.decode(T.self, from: data)
         } catch {
+            logInfo("Failed to fetch coins: \(error.localizedDescription)")
             // Throw a custom error if decoding fails
             throw NetworkError.decodingError(error)
         }
@@ -52,11 +53,12 @@ class NetworkService: NetworkServiceProtocol {
             throw NetworkError.invalidURL
         }
         
-        // Add query items for pagination and currency (optional but good practice)
+        // Add query items for pagination and currency
         urlComponents.queryItems = [
             URLQueryItem(name: "limit", value: "\(limit)"),
             URLQueryItem(name: "offset", value: "\(offset)"),
-            URLQueryItem(name: "referenceCurrencyUuid", value: "yhjMzLPhuIDl") // UUID for USD
+            URLQueryItem(name: "timePeriod", value: "24h"), //Default value: 24h
+            URLQueryItem(name: "referenceCurrencyUuid", value: AppConfig.defaultReferenceCurrencyUUID)
         ]
         
         guard let url = urlComponents.url else {

@@ -128,16 +128,13 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
             .instantiateViewController(withIdentifier: "CoinDetail") as? CoinDetailViewController
         else { return }
         
-        // 1. Use the factory to create the ViewModel
+    
         let detailViewModel = detailFactory.makeDetailViewModel(for: coinUUID)
-        // 2. Inject the ViewModel into the VC property
         detailVC.viewModel = detailViewModel
-        
-        // 3. Push the fully configured View Controller
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    // Implement swipe-to-remove here
+    // swipe-to-remove here
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let coin = viewModel.favoriteCoins[indexPath.row]
         

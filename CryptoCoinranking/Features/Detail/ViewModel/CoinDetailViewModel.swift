@@ -50,7 +50,7 @@ final class CoinDetailViewModel: ObservableObject{
             let response = try await networkService.fetchCoinDetails(uuid: coinUUID)
             self.coinDetails = response.data.coin
         } catch {
-            print("Failed to fetch coin details: \(error.localizedDescription)")
+            logInfo("Failed to fetch coin details: \(error.localizedDescription)")
             // TODO: Communicate error state to the View Controller
         }
     }
@@ -68,7 +68,7 @@ final class CoinDetailViewModel: ObservableObject{
             let response = try await networkService.fetchCoinHistory(uuid: coinUUID, timePeriod: period.rawValue)
             self.coinHistory = response.data.history
         } catch {
-            print("Failed to fetch coin history for \(period): \(error.localizedDescription)")
+            logInfo("Failed to fetch coin history for \(period): \(error.localizedDescription)")
             // TODO: Communicate error state to the View Controller
             self.coinHistory = [] // Clear old data on failure
         }
@@ -86,23 +86,22 @@ final class CoinDetailViewModel: ObservableObject{
         } else {
             favoritesManager.addFavorite(uuid: coinUUID)
         }
-        // Notify the VC that the favorite status has changed, so the button can update.
     }
     
     // MARK: - Formatting and Presentation Helpers
     
-    // Example: Format the rank with a "#"
+    // Format the rank with a "#"
     var formattedRank: String {
         guard let rank = coinDetails?.rank else { return "N/A" }
         return "#\(rank)"
     }
     
-    // Example: Format price using the utility extension
+    // Format price using the utility extension
     var formattedPrice: String {
         return coinDetails?.price?.toCurrencyFormat() ?? "N/A"
     }
     
-    // Example: Format change percentage
+    // Format change percentage
     var formattedChange: String {
         return coinDetails?.change?.toCurrencyFormat(maxDecimals: 2) ?? "N/A"
     }

@@ -50,10 +50,7 @@ final class FavoritesViewModel {
         }
         
         // 2. Fetch the full list of coins (to filter from)
-        // NOTE: In a real-world scenario, you might have a dedicated
-        // /coins/favorites endpoint to fetch only the favorited ones.
         // For this test, we fetch the top 100 and filter locally.
-        
         do {
             // We assume the top 100 contains all user favorites.
             let response = try await networkService.fetchCoins(offset: 0, limit: 100)

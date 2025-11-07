@@ -18,8 +18,7 @@ struct CoinDetail: Codable {
     let volume24h: String?
     let change: String?
     let color: String?
-    
-    // You'll need an array of links for 'Other Statistics'
+
     let links: [CoinLink]?
 }
 
@@ -35,7 +34,6 @@ struct CoinHistoryData: Codable {
 }
 
 struct HistoryPoint: Codable {
-    // Both price and timestamp are often returned as Strings in APIs
     let price: String?
     let timestamp: Int // Unix timestamp
 }

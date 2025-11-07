@@ -22,7 +22,7 @@ struct Coin: Codable{
     let color: String?
     let sparkline: [String?]
     
-    // 🔑 FIXED: Custom memberwise initializer for manual creation (like previews)
+    //Custom memberwise initializer for manual creation (like previews)
     init(uuid: String, rank: Int, name: String, symbol: String, iconUrl: String?, price: String?, change: String?, marketCap: String?, color: String?, sparkline: [String?]) {
         self.uuid = uuid
         self.rank = rank

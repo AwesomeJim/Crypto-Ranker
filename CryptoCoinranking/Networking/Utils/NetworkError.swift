@@ -27,3 +27,11 @@ enum NetworkError: Error {
         }
     }
 }
+
+
+func logError(_ obj: Any?) {
+    debugPrint("❌: \(String(describing: obj))")
+}
+func logInfo(_ obj: Any?) {
+    debugPrint("✅: \(String(describing: obj))")
+}
