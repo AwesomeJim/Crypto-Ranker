@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 71;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,7 +33,7 @@
 		14972EABECB66A7ACFEAABD8EF9E82E2 /* ExtraLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DCED026916FD8725F8D01C3503491 /* ExtraLine.swift */; };
 		14CA284AC4FF1EED75E785641EE98034 /* SDImageCacheConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 25AA4A2B8CD5779321B2CFDBC92E5B21 /* SDImageCacheConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		165F1C9CBD621828C788A3018D0426C5 /* SDImageAPNGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 22BB20184783B2D07CC38BF143E6C3C0 /* SDImageAPNGCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16D7DCB7CC985C33EEC41B371C029C84 /* SDWebImage-SDWebImage in Resources */ = {isa = PBXBuildFile; fileRef = CF1281E58AA1045D4B7F33FC56691C42 /* SDWebImage-SDWebImage */; };
+		16D7DCB7CC985C33EEC41B371C029C84 /* SDWebImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CF1281E58AA1045D4B7F33FC56691C42 /* SDWebImage.bundle */; };
 		1708C1D28B421C4AD310426D1695CE77 /* SDAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C7589D36741FE0628AD4245B95EE39AE /* SDAnimatedImage.m */; };
 		1754DD5511A7BF462B116F70B0D4006A /* SDWebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7CF934B1D630BB0670EA98F37153FF /* SDWebImageOperation.m */; };
 		1830558A4D2D63C8E76BC3136D8213F9 /* UIImage+ExtendedCacheData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E74EBAB1AC1F4FC1D00C911361DCF5F /* UIImage+ExtendedCacheData.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,7 +45,7 @@
 		1BC44E2FDD197D5210A23C9CCF1A906B /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FF169CBD499D71CE42B437449A2FA8 /* SDWebImageCompat.m */; };
 		1C0539DEA818DF5597E0D33912CC08D5 /* PieChartEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363318BF07BA445D3A347C26EB9306A /* PieChartEnums.swift */; };
 		1C8B70C74291A3076746C3B18781568E /* SDImageCachesManagerOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F6ABCE2D0E841F0ED4FB596FA77DF348 /* SDImageCachesManagerOperation.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1D45805F8EB6DBFF6D74F5F657B8939A /* SDWebImageSwiftUI-SDWebImageSwiftUI in Resources */ = {isa = PBXBuildFile; fileRef = 1F666B467B4C2BA9427FF79510009754 /* SDWebImageSwiftUI-SDWebImageSwiftUI */; };
+		1D45805F8EB6DBFF6D74F5F657B8939A /* SDWebImageSwiftUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1F666B467B4C2BA9427FF79510009754 /* SDWebImageSwiftUI.bundle */; };
 		1D5054D5AA3C56A7D98B1CFA3C2C0970 /* PieChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95811DFB59C29486D9ACB14F19D559AF /* PieChartStyle.swift */; };
 		1D85A4B0A1E1C77B46D6214EF608DA09 /* SDWebImageSVGCoderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4652D65355CB4D5C1330BE923754627B /* SDWebImageSVGCoderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20D618EF3EA5E3BE96DA24D36E3CA9EF /* SDAsyncBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F34A15FFA2000171B1579F3E3CADC34 /* SDAsyncBlockOperation.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -460,14 +460,14 @@
 		1A37B6D3452E29530359BF2FFB4D05A7 /* BarStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarStyle.swift; path = Sources/SwiftUICharts/BarChart/Models/Style/BarStyle.swift; sourceTree = "<group>"; };
 		1AADC15AC23ADFC9DE3834A2D809AB58 /* SDImageIOAnimatedCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOAnimatedCoder.h; path = SDWebImage/Core/SDImageIOAnimatedCoder.h; sourceTree = "<group>"; };
 		1BB20FAE3604DD8FFA29911317226079 /* SwiftUICharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftUICharts.debug.xcconfig; sourceTree = "<group>"; };
-		1C6E7223297106C7F8554339C81863EF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = WebImage/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1C6E7223297106C7F8554339C81863EF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = WebImage/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1CC5EC4FF884D6B5072547E1B06C1D43 /* SDWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImage.h; path = WebImage/SDWebImage.h; sourceTree = "<group>"; };
 		1D19308A51DFDEDCA6111E3067AD32B5 /* SharedEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SharedEnums.swift; path = Sources/SwiftUICharts/Shared/Extras/SharedEnums.swift; sourceTree = "<group>"; };
 		1DCFA65FE262134440F67C029DF729C1 /* NSImage+Compatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSImage+Compatibility.h"; path = "SDWebImage/Core/NSImage+Compatibility.h"; sourceTree = "<group>"; };
 		1E74EBAB1AC1F4FC1D00C911361DCF5F /* UIImage+ExtendedCacheData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ExtendedCacheData.h"; path = "SDWebImage/Core/UIImage+ExtendedCacheData.h"; sourceTree = "<group>"; };
 		1F2B720D5F271D77EEB84F797922DDB1 /* SDImageIOCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOCoder.h; path = SDWebImage/Core/SDImageIOCoder.h; sourceTree = "<group>"; };
 		1F596B0515511A4BC696F2839A59C1FD /* SDmetamacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDmetamacros.h; path = SDWebImage/Private/SDmetamacros.h; sourceTree = "<group>"; };
-		1F666B467B4C2BA9427FF79510009754 /* SDWebImageSwiftUI-SDWebImageSwiftUI */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SDWebImageSwiftUI-SDWebImageSwiftUI"; path = SDWebImageSwiftUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F666B467B4C2BA9427FF79510009754 /* SDWebImageSwiftUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDWebImageSwiftUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F980A09D238EAA2175EEACA0D451356 /* SDImageCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCoder.h; path = SDWebImage/Core/SDImageCoder.h; sourceTree = "<group>"; };
 		2007C65DF842358708D5EF0FB54E3F8C /* SDWebImageError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageError.m; path = SDWebImage/Core/SDWebImageError.m; sourceTree = "<group>"; };
 		21ED81E37532EC88BDB1E4F6A7AC7B5C /* BarChartProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarChartProtocols.swift; path = Sources/SwiftUICharts/BarChart/Models/Protocols/BarChartProtocols.swift; sourceTree = "<group>"; };
@@ -582,7 +582,7 @@
 		66D291DCE354DDF208A05B0BA0D5356E /* LineChartStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineChartStyle.swift; path = Sources/SwiftUICharts/LineChart/Models/Style/LineChartStyle.swift; sourceTree = "<group>"; };
 		67654716163C01424F77A431577195B2 /* Pods-CryptoCoinranking-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CryptoCoinranking-frameworks.sh"; sourceTree = "<group>"; };
 		676A0E3BA91DA46CBFDF1211BD03B221 /* SDWebImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-umbrella.h"; sourceTree = "<group>"; };
-		6B1B10F952F684F6767E6903C2F5E816 /* SDWebImageSwiftUI */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImageSwiftUI; path = SDWebImageSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B1B10F952F684F6767E6903C2F5E816 /* SDWebImageSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0B631B8E4B1B03D532F5D5EFB15CE7 /* SharedProtocolsExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SharedProtocolsExtensions.swift; path = Sources/SwiftUICharts/Shared/Models/Protocols/SharedProtocolsExtensions.swift; sourceTree = "<group>"; };
 		6E966D00634B82F106D8BDB7E28DCC43 /* LineChartProtocolsExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineChartProtocolsExtensions.swift; path = Sources/SwiftUICharts/LineChart/Models/Protocols/LineChartProtocolsExtensions.swift; sourceTree = "<group>"; };
 		6FF4A164A7860A26F08F141BBA6D8AD1 /* TouchOverlayMarker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TouchOverlayMarker.swift; path = Sources/SwiftUICharts/Shared/Shapes/TouchOverlayMarker.swift; sourceTree = "<group>"; };
@@ -634,7 +634,7 @@
 		961E6E7A994272A5DC0C7E14BEAD557C /* SDImageHEICCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageHEICCoder.h; path = SDWebImage/Core/SDImageHEICCoder.h; sourceTree = "<group>"; };
 		96E5A40D24E26FD74CF79358128E50CC /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/Core/UIView+WebCache.m"; sourceTree = "<group>"; };
 		96F94F67172157DD647E233130958BCC /* SDImageCodersManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCodersManager.h; path = SDWebImage/Core/SDImageCodersManager.h; sourceTree = "<group>"; };
-		9873338B9AB6BA95A932AE6FD8E3755D /* Pods-CryptoCoinrankingTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-CryptoCoinrankingTests"; path = Pods_CryptoCoinrankingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9873338B9AB6BA95A932AE6FD8E3755D /* Pods_CryptoCoinrankingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoCoinrankingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9940AD366432E5CC8A870BB48F1C0ECF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
 		9948C112E6F4998D4B9588B11C232D6A /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/Core/SDWebImageManager.m; sourceTree = "<group>"; };
 		997ACD30769A5618F61A3100AEEFCA2D /* XAxisLabels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxisLabels.swift; path = Sources/SwiftUICharts/SharedLineAndBar/ViewModifiers/XAxisLabels.swift; sourceTree = "<group>"; };
@@ -642,8 +642,8 @@
 		9AE8D11CBE896A8EECBFFD7920C38DD5 /* SDImageIOAnimatedCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageIOAnimatedCoder.m; path = SDWebImage/Core/SDImageIOAnimatedCoder.m; sourceTree = "<group>"; };
 		9BA7CEF672CDFA0BFDAF9EF6260ACBC5 /* SDImageCodersManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCodersManager.m; path = SDWebImage/Core/SDImageCodersManager.m; sourceTree = "<group>"; };
 		9C80ED8DBAAF75C845022292B4D6CD7F /* SDWebImageSVGCoder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SDWebImageSVGCoder.modulemap; sourceTree = "<group>"; };
-		9D5C22EEC6B4C5364AF1F76E26B040C9 /* Pods-CryptoCoinranking-CryptoCoinrankingUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-CryptoCoinranking-CryptoCoinrankingUITests"; path = Pods_CryptoCoinranking_CryptoCoinrankingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D5C22EEC6B4C5364AF1F76E26B040C9 /* Pods_CryptoCoinranking_CryptoCoinrankingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoCoinranking_CryptoCoinrankingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E67F54E13A20E1B20F195B2619799E5 /* InfoViewData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InfoViewData.swift; path = Sources/SwiftUICharts/Shared/Models/InfoViewData.swift; sourceTree = "<group>"; };
 		9EB06384902FA89B63702E8F395C7E71 /* SDWebImageSwiftUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImageSwiftUI-umbrella.h"; sourceTree = "<group>"; };
 		9EDB1AA084C87E38A14854C74042E051 /* StackedBarChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StackedBarChartData.swift; path = Sources/SwiftUICharts/BarChart/Models/ChartData/StackedBarChartData.swift; sourceTree = "<group>"; };
@@ -664,14 +664,14 @@
 		A8B666C03B456471A53946BAE18E7067 /* RangedLineChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangedLineChart.swift; path = Sources/SwiftUICharts/LineChart/Views/RangedLineChart.swift; sourceTree = "<group>"; };
 		AB04B6D888F15846E28232E612D5FAD6 /* SDInternalMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDInternalMacros.h; path = SDWebImage/Private/SDInternalMacros.h; sourceTree = "<group>"; };
 		AC3A99F2E49B4C1C1D91BEC5687BD297 /* SDWebImageCacheKeyFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCacheKeyFilter.h; path = SDWebImage/Core/SDWebImageCacheKeyFilter.h; sourceTree = "<group>"; };
-		ACF6B057FCBE202C3C31698DBB63BA46 /* Pods-CryptoCoinranking */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-CryptoCoinranking"; path = Pods_CryptoCoinranking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACF6B057FCBE202C3C31698DBB63BA46 /* Pods_CryptoCoinranking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoCoinranking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE19F2D76119B504E49AC1E47123431E /* SDWebImageSwiftUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageSwiftUI.h; path = SDWebImageSwiftUI/Module/SDWebImageSwiftUI.h; sourceTree = "<group>"; };
 		AEEAA84F4ECC44A510FFE4DA787DAD39 /* TouchOverlayBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TouchOverlayBox.swift; path = Sources/SwiftUICharts/SharedLineAndBar/Views/TouchOverlayBox.swift; sourceTree = "<group>"; };
 		AF335E26DB5A5865CC9C38914B7CA77D /* SDGraphicsImageRenderer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDGraphicsImageRenderer.m; path = SDWebImage/Core/SDGraphicsImageRenderer.m; sourceTree = "<group>"; };
 		AF3D923E8CB0D6B194FF3216342FB739 /* SDImageSVGCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageSVGCoder.h; path = SDWebImageSVGCoder/Classes/SDImageSVGCoder.h; sourceTree = "<group>"; };
 		AF6F573BCBFFBEF99059024C2DBD2608 /* Pods-CryptoCoinrankingTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CryptoCoinrankingTests-dummy.m"; sourceTree = "<group>"; };
 		B08E8B1DAE119257167ADDB4120A4928 /* LineChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineChartData.swift; path = Sources/SwiftUICharts/LineChart/Models/ChartData/LineChartData.swift; sourceTree = "<group>"; };
-		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0C037D71CDAA8821A0823CB76F4A0D2 /* NSImage+Compatibility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Compatibility.m"; path = "SDWebImage/Core/NSImage+Compatibility.m"; sourceTree = "<group>"; };
 		B0FA24994C75AD73B44A9A71D48E234B /* SDImageLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageLoader.m; path = SDWebImage/Core/SDImageLoader.m; sourceTree = "<group>"; };
 		B218F2FBAB74B0EA30FF701301CE4B5D /* SDWebImageCacheSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCacheSerializer.m; path = SDWebImage/Core/SDWebImageCacheSerializer.m; sourceTree = "<group>"; };
@@ -707,7 +707,7 @@
 		CC71E4A144A29D8A78E81222EBC1A2EC /* SwiftUICharts-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftUICharts-Info.plist"; sourceTree = "<group>"; };
 		CED575477B1D77D3C6073F8D3DD291DA /* NSBezierPath+SDRoundedCorners.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBezierPath+SDRoundedCorners.m"; path = "SDWebImage/Private/NSBezierPath+SDRoundedCorners.m"; sourceTree = "<group>"; };
 		CF07112241C70C8A1AF603FFEBEC5027 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/Core/UIImageView+WebCache.h"; sourceTree = "<group>"; };
-		CF1281E58AA1045D4B7F33FC56691C42 /* SDWebImage-SDWebImage */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SDWebImage-SDWebImage"; path = SDWebImage.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF1281E58AA1045D4B7F33FC56691C42 /* SDWebImage.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDWebImage.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15D483CBDB50CB9E2C5DE33843F101B /* HorizontalBarChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HorizontalBarChart.swift; path = Sources/SwiftUICharts/BarChart/Views/HorizontalBarChart.swift; sourceTree = "<group>"; };
 		D215D19F556112B3069C1749FB803460 /* HorizontalBarChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HorizontalBarChartData.swift; path = Sources/SwiftUICharts/BarChart/Models/ChartData/HorizontalBarChartData.swift; sourceTree = "<group>"; };
 		D22BDCDBE5792BAC37BABFD8D3D642EF /* SDImageCachesManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCachesManager.m; path = SDWebImage/Core/SDImageCachesManager.m; sourceTree = "<group>"; };
@@ -728,7 +728,7 @@
 		D97C85D0772CB1F4D920A2F4C8DF67D0 /* SDImageGIFCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageGIFCoder.h; path = SDWebImage/Core/SDImageGIFCoder.h; sourceTree = "<group>"; };
 		DA65A030C2855651FE90EFAA663DB46D /* Pods-CryptoCoinranking-CryptoCoinrankingUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CryptoCoinranking-CryptoCoinrankingUITests-frameworks.sh"; sourceTree = "<group>"; };
 		DB61E2CBD2B8FA1EF4FFFC6D60136756 /* UIColor+SDHexString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+SDHexString.h"; path = "SDWebImage/Private/UIColor+SDHexString.h"; sourceTree = "<group>"; };
-		DBF1E6783AC9792902406EAB8C0CE388 /* SwiftUICharts */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftUICharts; path = SwiftUICharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBF1E6783AC9792902406EAB8C0CE388 /* SwiftUICharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftUICharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC52BC3EBEF4CD8419AD8A51B03A6657 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/Core/SDWebImageDownloader.m; sourceTree = "<group>"; };
 		DC57F50F8175947E4205D0164F73916F /* UIImage+ExtendedCacheData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ExtendedCacheData.m"; path = "SDWebImage/Core/UIImage+ExtendedCacheData.m"; sourceTree = "<group>"; };
 		DC7159214EA14E315C7759C7BAAC7CB6 /* DataFunctionsProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataFunctionsProtocol.swift; path = Sources/SwiftUICharts/SharedLineAndBar/Models/Protocols/DataFunctionsProtocol.swift; sourceTree = "<group>"; };
@@ -746,7 +746,7 @@
 		E5E76F2EC154153D8C998372059953A8 /* MultiLineChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiLineChart.swift; path = Sources/SwiftUICharts/LineChart/Views/MultiLineChart.swift; sourceTree = "<group>"; };
 		E6046E0A9F4C8B1868F6A376D79618B4 /* LineShape.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineShape.swift; path = Sources/SwiftUICharts/LineChart/Shapes/LineShape.swift; sourceTree = "<group>"; };
 		E71FB731B833EF9962B6A0DD17CF2A42 /* SDDiskCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDDiskCache.m; path = SDWebImage/Core/SDDiskCache.m; sourceTree = "<group>"; };
-		E722D6805379E92A6556CE4A121DBEEE /* SDWebImageSVGCoder */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImageSVGCoder; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E722D6805379E92A6556CE4A121DBEEE /* SDWebImageSVGCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageSVGCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E80BBD71AC4EBE5156AB921D967C73CA /* LineChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineChartView.swift; path = Sources/SwiftUICharts/LineChart/Views/LineChartView.swift; sourceTree = "<group>"; };
 		E81A319FCB5E179FB341467846D14EE2 /* Stroke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stroke.swift; path = Sources/SwiftUICharts/Shared/Types/Stroke.swift; sourceTree = "<group>"; };
 		E86D3C673A866C8E688E1F16B5FB32A9 /* ChartImageController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartImageController.swift; path = Sources/SwiftUICharts/Shared/Models/ChartImageController.swift; sourceTree = "<group>"; };
@@ -767,7 +767,7 @@
 		F452896D43D5EE2B290F939722EDB197 /* AccessibilityRectangle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AccessibilityRectangle.swift; path = Sources/SwiftUICharts/Shared/Shapes/AccessibilityRectangle.swift; sourceTree = "<group>"; };
 		F5DD555D3E5B359CDDF940C318AF6C5C /* Pods-CryptoCoinranking-CryptoCoinrankingUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CryptoCoinranking-CryptoCoinrankingUITests.modulemap"; sourceTree = "<group>"; };
 		F6ABCE2D0E841F0ED4FB596FA77DF348 /* SDImageCachesManagerOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCachesManagerOperation.h; path = SDWebImage/Private/SDImageCachesManagerOperation.h; sourceTree = "<group>"; };
-		F6E87F9E8268979FE47BE29D5B23EEA5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = SDWebImageSwiftUI/Resources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F6E87F9E8268979FE47BE29D5B23EEA5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = SDWebImageSwiftUI/Resources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		F6F3C6EC9EAACA58B8DC0DCBB2830E50 /* ImageViewWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageViewWrapper.swift; path = SDWebImageSwiftUI/Classes/ImageViewWrapper.swift; sourceTree = "<group>"; };
 		F6FD183EBBC6CE1CA23C556592101899 /* SwiftUICharts-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftUICharts-umbrella.h"; sourceTree = "<group>"; };
 		F75A76D7722CF5D4481811C608970ECD /* SDWebImageSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImageSwiftUI.debug.xcconfig; sourceTree = "<group>"; };
@@ -1014,15 +1014,15 @@
 		12B68558EF2CCD56E64AEDE60546447D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACF6B057FCBE202C3C31698DBB63BA46 /* Pods-CryptoCoinranking */,
-				9D5C22EEC6B4C5364AF1F76E26B040C9 /* Pods-CryptoCoinranking-CryptoCoinrankingUITests */,
-				9873338B9AB6BA95A932AE6FD8E3755D /* Pods-CryptoCoinrankingTests */,
-				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */,
-				CF1281E58AA1045D4B7F33FC56691C42 /* SDWebImage-SDWebImage */,
-				E722D6805379E92A6556CE4A121DBEEE /* SDWebImageSVGCoder */,
-				6B1B10F952F684F6767E6903C2F5E816 /* SDWebImageSwiftUI */,
-				1F666B467B4C2BA9427FF79510009754 /* SDWebImageSwiftUI-SDWebImageSwiftUI */,
-				DBF1E6783AC9792902406EAB8C0CE388 /* SwiftUICharts */,
+				ACF6B057FCBE202C3C31698DBB63BA46 /* Pods_CryptoCoinranking.framework */,
+				9D5C22EEC6B4C5364AF1F76E26B040C9 /* Pods_CryptoCoinranking_CryptoCoinrankingUITests.framework */,
+				9873338B9AB6BA95A932AE6FD8E3755D /* Pods_CryptoCoinrankingTests.framework */,
+				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */,
+				CF1281E58AA1045D4B7F33FC56691C42 /* SDWebImage.bundle */,
+				E722D6805379E92A6556CE4A121DBEEE /* SDWebImageSVGCoder.framework */,
+				6B1B10F952F684F6767E6903C2F5E816 /* SDWebImageSwiftUI.framework */,
+				1F666B467B4C2BA9427FF79510009754 /* SDWebImageSwiftUI.bundle */,
+				DBF1E6783AC9792902406EAB8C0CE388 /* SwiftUICharts.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1062,7 +1062,6 @@
 				84E569F1CADA9EC682499132417F2D0D /* SDWebImageSVGCoderDefine.m */,
 				227DC58D741E3E01DD467D1933A18F8E /* Support Files */,
 			);
-			name = SDWebImageSVGCoder;
 			path = SDWebImageSVGCoder;
 			sourceTree = "<group>";
 		};
@@ -1141,7 +1140,6 @@
 				3A792F99BCBE3FBD8E9591C18AAC81E9 /* Resources */,
 				9DA56B974E0A71B363E694DEDC01847E /* Support Files */,
 			);
-			name = SDWebImageSwiftUI;
 			path = SDWebImageSwiftUI;
 			sourceTree = "<group>";
 		};
@@ -1350,7 +1348,6 @@
 				DC8EC6E597A943D4AF9B9BB80D047FC1 /* YAxisPOI.swift */,
 				8EA17C903D3857BA8FE243C0821A2B46 /* Support Files */,
 			);
-			name = SwiftUICharts;
 			path = SwiftUICharts;
 			sourceTree = "<group>";
 		};
@@ -1368,7 +1365,6 @@
 				01D1D4924F6597979D4517E11EC34F04 /* Core */,
 				6B31BDA6448A2534F6F71161670452E9 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -1540,7 +1536,7 @@
 			);
 			name = SDWebImage;
 			productName = SDWebImage;
-			productReference = B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */;
+			productReference = B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		70A8B3C4C65681987D06FB18CA318317 /* Pods-CryptoCoinranking */ = {
@@ -1562,7 +1558,7 @@
 			);
 			name = "Pods-CryptoCoinranking";
 			productName = Pods_CryptoCoinranking;
-			productReference = ACF6B057FCBE202C3C31698DBB63BA46 /* Pods-CryptoCoinranking */;
+			productReference = ACF6B057FCBE202C3C31698DBB63BA46 /* Pods_CryptoCoinranking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		7AA6C69570085338C36BE9651475C095 /* Pods-CryptoCoinranking-CryptoCoinrankingUITests */ = {
@@ -1584,7 +1580,7 @@
 			);
 			name = "Pods-CryptoCoinranking-CryptoCoinrankingUITests";
 			productName = Pods_CryptoCoinranking_CryptoCoinrankingUITests;
-			productReference = 9D5C22EEC6B4C5364AF1F76E26B040C9 /* Pods-CryptoCoinranking-CryptoCoinrankingUITests */;
+			productReference = 9D5C22EEC6B4C5364AF1F76E26B040C9 /* Pods_CryptoCoinranking_CryptoCoinrankingUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		92EBFA3E7005B4C18A9C0B44324EB80F /* SDWebImageSwiftUI */ = {
@@ -1604,7 +1600,7 @@
 			);
 			name = SDWebImageSwiftUI;
 			productName = SDWebImageSwiftUI;
-			productReference = 6B1B10F952F684F6767E6903C2F5E816 /* SDWebImageSwiftUI */;
+			productReference = 6B1B10F952F684F6767E6903C2F5E816 /* SDWebImageSwiftUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		94CFBA7D633ECA58DF85C327B035E6A3 /* SDWebImage-SDWebImage */ = {
@@ -1621,7 +1617,7 @@
 			);
 			name = "SDWebImage-SDWebImage";
 			productName = SDWebImage;
-			productReference = CF1281E58AA1045D4B7F33FC56691C42 /* SDWebImage-SDWebImage */;
+			productReference = CF1281E58AA1045D4B7F33FC56691C42 /* SDWebImage.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		9C1ADFBF2D9A00E7D931C651DD28D359 /* Pods-CryptoCoinrankingTests */ = {
@@ -1640,7 +1636,7 @@
 			);
 			name = "Pods-CryptoCoinrankingTests";
 			productName = Pods_CryptoCoinrankingTests;
-			productReference = 9873338B9AB6BA95A932AE6FD8E3755D /* Pods-CryptoCoinrankingTests */;
+			productReference = 9873338B9AB6BA95A932AE6FD8E3755D /* Pods_CryptoCoinrankingTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		B5C45F0BF79D5D87C6C791F345189310 /* SDWebImageSwiftUI-SDWebImageSwiftUI */ = {
@@ -1657,7 +1653,7 @@
 			);
 			name = "SDWebImageSwiftUI-SDWebImageSwiftUI";
 			productName = SDWebImageSwiftUI;
-			productReference = 1F666B467B4C2BA9427FF79510009754 /* SDWebImageSwiftUI-SDWebImageSwiftUI */;
+			productReference = 1F666B467B4C2BA9427FF79510009754 /* SDWebImageSwiftUI.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		B856BA85F30B9CB0BFFCDB44F4FB316F /* SDWebImageSVGCoder */ = {
@@ -1676,7 +1672,7 @@
 			);
 			name = SDWebImageSVGCoder;
 			productName = SDWebImageSVGCoder;
-			productReference = E722D6805379E92A6556CE4A121DBEEE /* SDWebImageSVGCoder */;
+			productReference = E722D6805379E92A6556CE4A121DBEEE /* SDWebImageSVGCoder.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F5F5604ABDAEB215443AF10250676EDE /* SwiftUICharts */ = {
@@ -1694,7 +1690,7 @@
 			);
 			name = SwiftUICharts;
 			productName = SwiftUICharts;
-			productReference = DBF1E6783AC9792902406EAB8C0CE388 /* SwiftUICharts */;
+			productReference = DBF1E6783AC9792902406EAB8C0CE388 /* SwiftUICharts.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1715,8 +1711,6 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 12B68558EF2CCD56E64AEDE60546447D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1746,7 +1740,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16D7DCB7CC985C33EEC41B371C029C84 /* SDWebImage-SDWebImage in Resources */,
+				16D7DCB7CC985C33EEC41B371C029C84 /* SDWebImage.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1798,7 +1792,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D45805F8EB6DBFF6D74F5F657B8939A /* SDWebImageSwiftUI-SDWebImageSwiftUI in Resources */,
+				1D45805F8EB6DBFF6D74F5F657B8939A /* SDWebImageSwiftUI.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2177,7 +2171,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SDWebImage";
 				IBSC_MODULE = SDWebImage;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/ResourceBundle-SDWebImage-SDWebImage-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -2204,7 +2198,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/SDWebImage-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2839,7 +2833,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/SDWebImage-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2907,7 +2901,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SDWebImage";
 				IBSC_MODULE = SDWebImage;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/ResourceBundle-SDWebImage-SDWebImage-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

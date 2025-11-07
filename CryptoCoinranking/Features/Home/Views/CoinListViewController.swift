@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import SwiftUI
+internal import Combine
 
 
 final class CoinListViewController: UIViewController {
@@ -17,6 +18,8 @@ final class CoinListViewController: UIViewController {
     // MARK: Dependencies
     private var viewModel: CoinListViewModel!
     private var detailFactory: DetailFactoryProtocol!
+    
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: UI Components
     @IBOutlet weak var tableView: UITableView!
@@ -95,6 +98,15 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate{
                 self.activityIndicator.stopAnimating()
             }
         }
+        //
+        viewModel.$appError
+            .compactMap { $0 } // Only proceed if error is not nil
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                self?.presentErrorAlert(error: error)
+                self?.viewModel.appError = nil // Clear the error after showing
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - Data Source

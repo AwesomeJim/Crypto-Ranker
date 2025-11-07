@@ -10,6 +10,8 @@
 		11831B219A9C2AFF9EE0979D /* Pods_CryptoCoinranking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B370925591336C0A4359FEC /* Pods_CryptoCoinranking.framework */; };
 		545E402C1134384649A45CFB /* Pods_CryptoCoinrankingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBFB6125B53AF5720BBD93D /* Pods_CryptoCoinrankingTests.framework */; };
 		744646BE506BFE5304F9B7AA /* Pods_CryptoCoinranking_CryptoCoinrankingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E683F3B0B294675E0538141 /* Pods_CryptoCoinranking_CryptoCoinrankingUITests.framework */; };
+		E3DCE15F2EBE660700711304 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCE15E2EBE660400711304 /* AppError.swift */; };
+		E3DCE1612EBE675200711304 /* UIViewController+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCE1602EBE674F00711304 /* UIViewController+ErrorAlert.swift */; };
 		E3ED3AC22EB65B8F006DF229 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ED3AB42EB65B8F006DF229 /* LaunchScreen.storyboard */; };
 		E3ED3AC32EB65B8F006DF229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3ED3ABA2EB65B8F006DF229 /* Assets.xcassets */; };
 		E3ED3AC42EB65B8F006DF229 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ED3ABD2EB65B8F006DF229 /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 		E3D7693B2EB643020058419C /* CryptoCoinranking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCoinranking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D769542EB643030058419C /* CryptoCoinrankingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoCoinrankingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D7695E2EB643030058419C /* CryptoCoinrankingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoCoinrankingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3DCE15E2EBE660400711304 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		E3DCE1602EBE674F00711304 /* UIViewController+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlert.swift"; sourceTree = "<group>"; };
 		E3ED3AA82EB65B8F006DF229 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3ED3AA92EB65B8F006DF229 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E3ED3AB32EB65B8F006DF229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -115,15 +119,11 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E3D769572EB643030058419C /* CryptoCoinrankingTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = CryptoCoinrankingTests;
 			sourceTree = "<group>";
 		};
 		E3D769612EB643030058419C /* CryptoCoinrankingUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = CryptoCoinrankingUITests;
 			sourceTree = "<group>";
 		};
@@ -215,6 +215,7 @@
 		E3ED3AAB2EB65B8F006DF229 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCE1602EBE674F00711304 /* UIViewController+ErrorAlert.swift */,
 				E3ED3B532EB7C03C006DF229 /* Color+Extensions.swift */,
 				E3ED3B372EB75823006DF229 /* String+Extensions.swift */,
 			);
@@ -421,6 +422,7 @@
 		E3ED3ADE2EB667A4006DF229 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCE15E2EBE660400711304 /* AppError.swift */,
 				E3ED3ADF2EB667B2006DF229 /* NetworkError.swift */,
 			);
 			path = Utils;
@@ -637,9 +639,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking-CryptoCoinrankingUITests/Pods-CryptoCoinranking-CryptoCoinrankingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking-CryptoCoinrankingUITests/Pods-CryptoCoinranking-CryptoCoinrankingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -676,9 +682,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking/Pods-CryptoCoinranking-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoCoinranking/Pods-CryptoCoinranking-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -727,10 +737,12 @@
 				E3ED3ADD2EB66776006DF229 /* NetworkService.swift in Sources */,
 				E3ED3AEF2EB6764A006DF229 /* CoinListViewModel.swift in Sources */,
 				E3ED3B4E2EB78628006DF229 /* CoinDetailFactory.swift in Sources */,
+				E3DCE15F2EBE660700711304 /* AppError.swift in Sources */,
 				E3ED3B4C2EB783BE006DF229 /* CoinDetailViewController.swift in Sources */,
 				E3ED3AE52EB67243006DF229 /* CoinDetailResponse.swift in Sources */,
 				E3ED3B522EB7AC4F006DF229 /* EmptyFavoritesView.swift in Sources */,
 				E3ED3AF72EB6899C006DF229 /* CoinListViewController.swift in Sources */,
+				E3DCE1612EBE675200711304 /* UIViewController+ErrorAlert.swift in Sources */,
 				E3ED3B382EB75827006DF229 /* String+Extensions.swift in Sources */,
 				E3ED3B462EB78314006DF229 /* CoinDetailViewModel.swift in Sources */,
 				E3ED3B412EB77EA5006DF229 /* FavoritesViewModel.swift in Sources */,

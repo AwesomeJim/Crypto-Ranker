@@ -125,6 +125,16 @@ final class CoinDetailViewController: UIViewController {
                 self.updateFavoriteButton()
             }
             .store(in: &cancellables)
+        //
+        viewModel.$appError
+            .compactMap { $0 } // Only proceed if error is not nil
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                self?.presentErrorAlert(error: error)
+                self?.viewModel.appError = nil // Clear the error after showing
+            }
+            .store(in: &cancellables)
+        
     }
     
     private func embedChartView() {

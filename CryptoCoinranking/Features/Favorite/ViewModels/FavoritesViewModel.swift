@@ -6,6 +6,7 @@
 //
 
 import Foundation
+internal import Combine
 
 final class FavoritesViewModel {
     
@@ -22,6 +23,9 @@ final class FavoritesViewModel {
             onUpdate?()
         }
     }
+    
+    @Published var appError: AppError?
+    
     
     // MARK: - Initialization
     
@@ -61,7 +65,7 @@ final class FavoritesViewModel {
             } ??    []
         } catch {
             print("Failed to fetch and filter favorite coins: \(error.localizedDescription)")
-            // Handle error communication
+            self.appError = AppError(title: "An Error Occurred", message: error.localizedDescription)
         }
     }
     

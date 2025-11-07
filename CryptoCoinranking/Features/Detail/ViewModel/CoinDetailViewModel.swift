@@ -21,6 +21,8 @@ final class CoinDetailViewModel: ObservableObject{
     @Published var coinDetails: CoinDetail?
     @Published private(set) var coinHistory: [HistoryPoint] = []
     
+    @Published var appError: AppError?
+    
     // User interaction state
     private(set) var currentPeriod: TimePeriod = .sevenDays
     
@@ -51,7 +53,7 @@ final class CoinDetailViewModel: ObservableObject{
             self.coinDetails = response.data.coin
         } catch {
             logInfo("Failed to fetch coin details: \(error.localizedDescription)")
-            // TODO: Communicate error state to the View Controller
+            self.appError = AppError(title: "An Error Occurred", message: error.localizedDescription)
         }
     }
     
@@ -69,7 +71,7 @@ final class CoinDetailViewModel: ObservableObject{
             self.coinHistory = response.data.history
         } catch {
             logInfo("Failed to fetch coin history for \(period): \(error.localizedDescription)")
-            // TODO: Communicate error state to the View Controller
+            self.appError = AppError(title: "An Error Occurred", message: error.localizedDescription)
             self.coinHistory = [] // Clear old data on failure
         }
     }

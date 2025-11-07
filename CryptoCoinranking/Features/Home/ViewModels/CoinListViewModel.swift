@@ -6,6 +6,7 @@
 //
 
 import Foundation
+internal import Combine
 final class CoinListViewModel {
     
     // MARK: - Dependencies & State
@@ -23,6 +24,8 @@ final class CoinListViewModel {
             onUpdate()
         }
     }
+    
+    @Published var appError: AppError?
     
     // Pagination State
     private let limit = 20
@@ -63,7 +66,7 @@ final class CoinListViewModel {
             
         } catch {
             logInfo("Failed to fetch coins: \(error.localizedDescription)")
-            // In a real app, you'd communicate this error to the View
+            self.appError = AppError(title: "An Error Occurred", message: error.localizedDescription)
         }
         
         isFetching = false

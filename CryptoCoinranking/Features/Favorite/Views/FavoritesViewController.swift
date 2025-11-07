@@ -7,12 +7,16 @@
 
 import UIKit
 import SwiftUI
+internal import Combine
 
 final class FavoritesViewController: UIViewController{
     
     // MARK: - Properties
     private var viewModel: FavoritesViewModel!
     private var detailFactory: DetailFactoryProtocol!
+    
+    //Store Combine subscriptions here
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: UI Components
     @IBOutlet weak var tableView: UITableView!
@@ -85,6 +89,7 @@ final class FavoritesViewController: UIViewController{
     }
     
     private func bindViewModel() {
+        //
         viewModel.onUpdate = { [weak self] in
             guard let self = self else { return }
             self.activityIndicator.stopAnimating()
@@ -95,6 +100,15 @@ final class FavoritesViewController: UIViewController{
             
             self.tableView.reloadData()
         }
+        //
+        viewModel.$appError
+            .compactMap { $0 } // Only proceed if error is not nil
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                self?.presentErrorAlert(error: error)
+                self?.viewModel.appError = nil // Clear the error after showing
+            }
+            .store(in: &cancellables)
     }
 }
 
