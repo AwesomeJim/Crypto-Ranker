@@ -30,7 +30,8 @@ The application successfully implements a three-screen architecture using MVVM a
 3.  **Favorites/Watchlist:**
     * Persists user-selected favorite coins using `UserDefaults`.
     * Synchronized across the entire app via `NotificationCenter`.
-    * Displays a SwiftUI empty state message when the list is empty.
+    
+4.  **Error Handling:** Implemented a centralized `AppError` model and Combine subscriptions in all View Controllers to display non-blocking error dialogs on network failures.
 
 
 # [Screenshots 📱](Screenshots/)
