@@ -14,12 +14,7 @@ struct CoinChartView: View {
     let history: [HistoryPoint]
     let color: String // Use the coin's color for the chart line
     
-    private var coinBackgroundColor: Color {
-        // Use the coin's color
-        return Color(hex: color)
-    }
-    
-    
+
     private var chartData: LineChartData {
         // 1. Convert sparkline strings to Doubles
         let points = history.compactMap { Double($0.price ?? "") }
@@ -28,7 +23,7 @@ struct CoinChartView: View {
         let dataSet = LineDataSet(
             dataPoints: points.map { LineChartDataPoint(value: $0) },
             pointStyle: PointStyle(), // Default point style
-            style: LineStyle(lineColour: ColourStyle(colour: coinBackgroundColor), lineType: .curvedLine)
+            style: LineStyle(lineColour: ColourStyle(colour: Color(hex: color)), lineType: .curvedLine)
         )
         
         return LineChartData(dataSets: dataSet)
@@ -41,7 +36,8 @@ struct CoinChartView: View {
             // Set the ID to force SwiftUI to redraw when data changes
                 .id(chartData.id)
                 .frame(height: 200)
-                .padding()
         }
+        .coinCardStyle(hexColor: color)
+        .padding(.vertical, 8)
     }
 }

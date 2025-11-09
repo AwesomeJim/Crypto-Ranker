@@ -21,7 +21,8 @@ final class CoinDetailViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let stackView = UIStackView()
     private let timePeriodSegmentedControl = UISegmentedControl(items: TimePeriod.allCases.map { $0.title })
-    private let detailLabel = UILabel()
+    
+    private var detailHostView = UIView()
     private let chartHostView = UIView() // Host for the SwiftUI Chart
     
     required init?(coder: NSCoder) {
@@ -55,7 +56,6 @@ final class CoinDetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.alignment = .fill
-        detailLabel.numberOfLines = 0
         
         // Replace UIKit summary with SwiftUI Header
         let headerHost = UIHostingController(rootView: CoinDetailHeaderView(viewModel: viewModel))
@@ -72,7 +72,6 @@ final class CoinDetailViewController: UIViewController {
         // Configure Segmented Control
         timePeriodSegmentedControl.selectedSegmentIndex = TimePeriod.allCases.firstIndex(of: viewModel.currentPeriod) ?? 0
         timePeriodSegmentedControl.addTarget(self, action: #selector(timePeriodChanged), for: .valueChanged)
-        
         // Build the hierarchy
         scrollView.addSubview(stackView)
         view.addSubview(scrollView)
@@ -80,7 +79,7 @@ final class CoinDetailViewController: UIViewController {
         
         stackView.addArrangedSubview(timePeriodSegmentedControl)
         stackView.addArrangedSubview(chartHostView)
-        stackView.addArrangedSubview(detailLabel)
+        stackView.addArrangedSubview(detailHostView)
         
         // Constraints
         NSLayoutConstraint.activate([
@@ -121,7 +120,8 @@ final class CoinDetailViewController: UIViewController {
                 guard let self = self, let details = details else { return }
                 
                 self.navigationItem.title = details.name
-                self.detailLabel.text = "About: \(details.name) \n \(details.description?.htmlToString ?? details.name)"
+                //self.detailLabel.text = "About: \(details.name) \n \(details.description?.htmlToString ?? details.name)"
+                self.updateDetailView(with: details)
                 self.updateFavoriteButton()
             }
             .store(in: &cancellables)
@@ -136,6 +136,19 @@ final class CoinDetailViewController: UIViewController {
             .store(in: &cancellables)
         
     }
+    
+    // CoinDetailViewController.swift
+    
+    private func updateDetailView(with coin: CoinDetail) {
+        let title = "About \(coin.name)" // Construct the title
+        let detail = coin.description?.htmlToString ?? "No description available." // Get the detail text
+        
+        let newView = CoinDetailRowView(title: title, detail: detail)
+        
+        // Update the hosted view directly
+        self.embedDetailView(initialView: newView)
+    }
+    
     
     private func embedChartView() {
         // Remove existing hosted view before adding a new one
@@ -158,10 +171,33 @@ final class CoinDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             hostingController.view.leadingAnchor.constraint(equalTo: chartHostView.leadingAnchor),
             hostingController.view.trailingAnchor.constraint(equalTo: chartHostView.trailingAnchor),
-            hostingController.view.topAnchor.constraint(equalTo: chartHostView.topAnchor),
-            hostingController.view.bottomAnchor.constraint(equalTo: chartHostView.bottomAnchor),
-        
+            hostingController.view.topAnchor.constraint(equalTo: chartHostView.topAnchor,constant: 16),
+            hostingController.view.bottomAnchor.constraint(equalTo: chartHostView.bottomAnchor,constant: 16),
+            
             chartHostView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    private func embedDetailView(initialView: CoinDetailRowView) {
+        // Remove existing hosted view before adding a new one
+        detailHostView.subviews.forEach { $0.removeFromSuperview() }
+        
+        let hostingController = UIHostingController(rootView: initialView)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add as a child view controller
+        addChild(hostingController)
+        detailHostView.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
+        
+        
+        // Constraints to fill the host view
+        NSLayoutConstraint.activate([
+            hostingController.view.leadingAnchor.constraint(equalTo: detailHostView.leadingAnchor,constant: -16),
+            hostingController.view.trailingAnchor.constraint(equalTo: detailHostView.trailingAnchor,constant: -16),
+            hostingController.view.topAnchor.constraint(equalTo: detailHostView.topAnchor,constant: 16),
+            hostingController.view.bottomAnchor.constraint(equalTo: detailHostView.bottomAnchor,constant: 8),
+        
         ])
     }
     

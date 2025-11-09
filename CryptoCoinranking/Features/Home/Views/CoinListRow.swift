@@ -19,29 +19,9 @@ struct ChartPoint: Identifiable {
 struct CoinListRow: View {
     let coin: Coin
     
-    // Access the current environment color scheme
-    @Environment(\.colorScheme) var colorScheme
-    
-    private var coinBackgroundColor: Color {
+    private var coinBgColor: Color {
         // Use the coin's color, or fall back to a default dark gray
         return Color(hex: coin.color ?? "#333333")
-    }
-    
-    // Conditional background logic
-    private var rowBackgroundColor: Color {
-        if colorScheme == .dark {
-            // Use a constant gray color for visibility in Dark Mode
-            return Color(uiColor: .gray).opacity(0.50)
-        } else {
-            // Use the coin's specific brand color in Light Mode
-            return coinBackgroundColor.opacity(0.15)
-        }
-    }
-    
-    //  Conditional border color
-    private var rowBorderColor: Color {
-        // We'll use the coin's brand color for the border in both modes
-        return coinBackgroundColor.opacity(0.15)
     }
     
     private var chartData: LineChartData {
@@ -52,7 +32,7 @@ struct CoinListRow: View {
         let dataSet = LineDataSet(
             dataPoints: points.map { LineChartDataPoint(value: $0) },
             pointStyle: PointStyle(),
-            style: LineStyle(lineColour: ColourStyle(colour: coinBackgroundColor), lineType: .line)
+            style: LineStyle(lineColour: ColourStyle(colour: coinBgColor), lineType: .line)
         )
         
         return LineChartData(dataSets: dataSet)
@@ -120,18 +100,7 @@ struct CoinListRow: View {
                 .foregroundColor(changeColor)
             }
         }
-        // 1. Padding inside the card
-        .padding(.horizontal, 8)
-        .padding(.vertical, 16)
-        .background(rowBackgroundColor)
-        .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(rowBorderColor, lineWidth: 1)
-        )
-        
-        // 2.Padding outside the card (creates the margin)
-        .padding(.horizontal, 8)
+        .coinCardStyle(hexColor: coin.color ?? "#333333")
         .padding(.vertical, 0)
     }
 }

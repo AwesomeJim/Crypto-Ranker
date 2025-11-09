@@ -12,6 +12,9 @@
 		744646BE506BFE5304F9B7AA /* Pods_CryptoCoinranking_CryptoCoinrankingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E683F3B0B294675E0538141 /* Pods_CryptoCoinranking_CryptoCoinrankingUITests.framework */; };
 		E3DCE15F2EBE660700711304 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCE15E2EBE660400711304 /* AppError.swift */; };
 		E3DCE1612EBE675200711304 /* UIViewController+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCE1602EBE674F00711304 /* UIViewController+ErrorAlert.swift */; };
+		E3DCE1762EC0952100711304 /* CoinCardStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCE1752EC0951F00711304 /* CoinCardStyleModifier.swift */; };
+		E3DCE1782EC095DB00711304 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCE1772EC095CE00711304 /* View+Extensions.swift */; };
+		E3DCE17A2EC09F3900711304 /* CoinDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DCE1792EC09F3600711304 /* CoinDetailRowView.swift */; };
 		E3ED3AC22EB65B8F006DF229 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ED3AB42EB65B8F006DF229 /* LaunchScreen.storyboard */; };
 		E3ED3AC32EB65B8F006DF229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3ED3ABA2EB65B8F006DF229 /* Assets.xcassets */; };
 		E3ED3AC42EB65B8F006DF229 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ED3ABD2EB65B8F006DF229 /* Main.storyboard */; };
@@ -77,6 +80,9 @@
 		E3D7695E2EB643030058419C /* CryptoCoinrankingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoCoinrankingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DCE15E2EBE660400711304 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E3DCE1602EBE674F00711304 /* UIViewController+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlert.swift"; sourceTree = "<group>"; };
+		E3DCE1752EC0951F00711304 /* CoinCardStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCardStyleModifier.swift; sourceTree = "<group>"; };
+		E3DCE1772EC095CE00711304 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		E3DCE1792EC09F3600711304 /* CoinDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailRowView.swift; sourceTree = "<group>"; };
 		E3ED3AA82EB65B8F006DF229 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3ED3AA92EB65B8F006DF229 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E3ED3AB32EB65B8F006DF229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 		E3ED3AAB2EB65B8F006DF229 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCE1772EC095CE00711304 /* View+Extensions.swift */,
 				E3DCE1602EBE674F00711304 /* UIViewController+ErrorAlert.swift */,
 				E3ED3B532EB7C03C006DF229 /* Color+Extensions.swift */,
 				E3ED3B372EB75823006DF229 /* String+Extensions.swift */,
@@ -239,6 +246,7 @@
 		E3ED3AAE2EB65B8F006DF229 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCE1752EC0951F00711304 /* CoinCardStyleModifier.swift */,
 				E3ED3AF02EB676A6006DF229 /* Enums */,
 				E3ED3AAB2EB65B8F006DF229 /* Extensions */,
 				E3ED3AAC2EB65B8F006DF229 /* Protocols */,
@@ -463,6 +471,7 @@
 		E3ED3B482EB7837E006DF229 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCE1792EC09F3600711304 /* CoinDetailRowView.swift */,
 				E3ED3B4F2EB797A6006DF229 /* CoinDetailHeaderView.swift */,
 				E3ED3B4B2EB783BB006DF229 /* CoinDetailViewController.swift */,
 				E3ED3B492EB78388006DF229 /* CoinChartView.swift */,
@@ -724,6 +733,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DCE1782EC095DB00711304 /* View+Extensions.swift in Sources */,
+				E3DCE17A2EC09F3900711304 /* CoinDetailRowView.swift in Sources */,
 				E3ED3B302EB73BE8006DF229 /* CoinTableViewCell.swift in Sources */,
 				E3ED3AD52EB6637D006DF229 /* CoinData.swift in Sources */,
 				E3ED3AC62EB65B8F006DF229 /* AppDelegate.swift in Sources */,
@@ -750,6 +761,7 @@
 				E3ED3ADA2EB66725006DF229 /* NetworkServiceProtocol.swift in Sources */,
 				E3ED3AE92EB6727F006DF229 /* CoinDetail.swift in Sources */,
 				E3ED3AD32EB66262006DF229 /* Coin.swift in Sources */,
+				E3DCE1762EC0952100711304 /* CoinCardStyleModifier.swift in Sources */,
 				E3ED3AD72EB663D9006DF229 /* CoinResponse.swift in Sources */,
 				E3ED3AC92EB65B8F006DF229 /* CryptoCoinranking.xcdatamodeld in Sources */,
 				E3ED3AE02EB667B5006DF229 /* NetworkError.swift in Sources */,
