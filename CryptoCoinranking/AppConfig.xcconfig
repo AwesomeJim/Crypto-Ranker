@@ -9,7 +9,7 @@
 // 1. Base URL
 SIMPLE_SLASH = /
 API_PROTOCOL = https:
-API_BASE_URL = $(API_PROTOCOL)$(SIMPLE_SLASH)$(SIMPLE_SLASH)api.coinranking.com$(API_PROTOCOL)v2
+API_BASE_URL = $(API_PROTOCOL)$(SIMPLE_SLASH)$(SIMPLE_SLASH)api.coinranking.com$(SIMPLE_SLASH)v2$(SIMPLE_SLASH)
 
 // 2. API Key (Use your actual key here)
-COIN_RANKING_API_KEY = //
+COIN_RANKING_API_KEY = <------- Your API KEY ------>
