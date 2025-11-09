@@ -14,17 +14,8 @@ final class CoinListViewModel {
     private let networkService: NetworkServiceProtocol
     private let favoritesManager: FavoritesManagerProtocol
     
-    // Closure the ViewController will set to update its UI
-    var onUpdate: () -> Void = {}
-    
-    // The source of truth for the CoinListViewController
-    private(set) var currentCoins: [Coin] = [] {
-        didSet {
-            // Automatically notify the ViewController when coins are updated
-            onUpdate()
-        }
-    }
-    
+    // Define observer with @Published for reactive updates
+    @Published private(set) var currentCoins: [Coin] = []
     @Published var appError: AppError?
     
     // Pagination State
@@ -35,7 +26,7 @@ final class CoinListViewModel {
     
     // Filtering State
     private var rawFetchedCoins: [Coin] = [] // Holds the full, unfiltered list of 100 coins
-    private var currentFilter: CoinFilter = .marketCap(.descending)
+    var currentFilter: CoinFilter = .marketCap(.descending)
     
     // MARK: - Initialization
     

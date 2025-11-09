@@ -84,20 +84,22 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate{
     
     // ViewModel Binding (How we receive updates)
     private func bindViewModel() {
-        // The ViewModel calls this closure whenever currentCoins is updated
-        viewModel.onUpdate = { [weak self] in
-            guard let self = self else { return }
-            self.activityIndicator.stopAnimating()
-            logInfo("currentCoins \(viewModel.currentCoins.count)")
-            
-            // Reload table data
-            self.tableView.reloadData()
-            
-            // We can stop the indicator *after* the first data load
-            if self.activityIndicator.isAnimating {
+        viewModel.$currentCoins
+            .receive(on: DispatchQueue.main) // Ensure UI updates on main thread
+            .sink { [weak self] _ in
+                guard let self = self else { return }
                 self.activityIndicator.stopAnimating()
+                logInfo("currentCoins \(viewModel.currentCoins.count)")
+                
+                // Reload table data
+                self.tableView.reloadData()
+                
+                // We can stop the indicator *after* the first data load
+                if self.activityIndicator.isAnimating {
+                    self.activityIndicator.stopAnimating()
+                }
             }
-        }
+            .store(in: &cancellables) // Store the subscription
         //
         viewModel.$appError
             .compactMap { $0 } // Only proceed if error is not nil

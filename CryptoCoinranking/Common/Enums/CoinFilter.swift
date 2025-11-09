@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum CoinFilter: CaseIterable {
+enum CoinFilter: CaseIterable,Equatable {
     case marketCap(SortOrder) // Default sorting is by Market Cap
     case price(SortOrder)
     case change24h(SortOrder)
     
     
     // MARK: - CaseIterable Conformance
-   
+    
     static var allCases: [CoinFilter] {
         return [
             // List the primary options the user will see in the filter menu
@@ -25,7 +25,7 @@ enum CoinFilter: CaseIterable {
     }
     
     // Enum to handle ascending or descending order
-    enum SortOrder {
+    enum SortOrder: Equatable{
         case descending
         case ascending
     }
@@ -38,10 +38,21 @@ enum CoinFilter: CaseIterable {
         default: return "Custom Sort" // Simpler titles for the UI menu
         }
     }
+    
+    var rawValue: String {
+        switch self {
+        case .marketCap:
+            return "marketCap"
+        case .price:
+            return "price"
+        case .change24h:
+            return "change"
+        }
+    }
 }
 
 enum TimePeriod: String, CaseIterable {
-    case oneDay = "1h" 
+    case oneDay = "1h"
     case sevenDays = "7d"
     case thirtyDays = "30d"
     case oneYear = "1y"
