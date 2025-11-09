@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import SwiftUI 
+import SwiftUI
 import SwiftUICharts
 
 // We define a simple SwiftUI view to wrap the chart logic
 struct CoinChartView: View {
     let history: [HistoryPoint]
     let color: String // Use the coin's color for the chart line
-    
 
     private var chartData: LineChartData {
         // 1. Convert sparkline strings to Doubles
@@ -29,15 +28,16 @@ struct CoinChartView: View {
         return LineChartData(dataSets: dataSet)
     }
     
-
+    
     var body: some View {
         VStack {
             LineChart(chartData: chartData)
             // Set the ID to force SwiftUI to redraw when data changes
                 .id(chartData.id)
                 .frame(height: 200)
+                .yAxisLabels(chartData: chartData)
         }
         .coinCardStyle(hexColor: color)
-        .padding(.vertical, 8)
+        .padding(.vertical, 0)
     }
 }
