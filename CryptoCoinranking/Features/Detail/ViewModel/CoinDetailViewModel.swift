@@ -17,7 +17,7 @@ final class CoinDetailViewModel: ObservableObject{
     private let coinUUID: String // The ID passed from the list screen
     
     // Data Sources for the View Controller
-    //Change closures to published properties
+    // MARK: Define published properties
     @Published var coinDetails: CoinDetail?
     @Published private(set) var coinHistory: [HistoryPoint] = []
     

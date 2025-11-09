@@ -85,21 +85,26 @@ final class FavoritesViewController: UIViewController{
         ])
         
         // Start hidden
-         emptyStateHost.view.isHidden = true
+        emptyStateHost.view.isHidden = true
     }
     
     private func bindViewModel() {
         //
-        viewModel.onUpdate = { [weak self] in
-            guard let self = self else { return }
-            self.activityIndicator.stopAnimating()
-            //
-            let isEmpty = self.viewModel.favoriteCoins.isEmpty
-            print("Favorite Coins \(isEmpty)")
-            self.emptyStateHost.view.isHidden = !isEmpty
-            
-            self.tableView.reloadData()
-        }
+        // Subscribe to changes in the @Published favoriteCoins property
+        viewModel.$favoriteCoins
+            .receive(on: DispatchQueue.main) // Ensure UI updates on main thread
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.activityIndicator.stopAnimating()
+                let isEmpty = self.viewModel.favoriteCoins.isEmpty
+    
+                logInfo("Favorite Coins isEmpty \(isEmpty)")
+                self.emptyStateHost.view.isHidden = !isEmpty
+                
+                self.tableView.reloadData()
+            }
+            .store(in: &cancellables) // Store the subscription
+        
         //
         viewModel.$appError
             .compactMap { $0 } // Only proceed if error is not nil
@@ -137,12 +142,12 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCoin = viewModel.favoriteCoins[indexPath.row]
         let coinUUID =  selectedCoin.uuid
-        print("Tapped favorite coin: \(selectedCoin.name)")
+        logInfo("Tapped favorite coin: \(selectedCoin.name)")
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(withIdentifier: "CoinDetail") as? CoinDetailViewController
         else { return }
         
-    
+        
         let detailViewModel = detailFactory.makeDetailViewModel(for: coinUUID)
         detailVC.viewModel = detailViewModel
         navigationController?.pushViewController(detailVC, animated: true)

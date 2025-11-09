@@ -19,11 +19,30 @@ struct ChartPoint: Identifiable {
 struct CoinListRow: View {
     let coin: Coin
     
+    // Access the current environment color scheme
+    @Environment(\.colorScheme) var colorScheme
+    
     private var coinBackgroundColor: Color {
         // Use the coin's color, or fall back to a default dark gray
         return Color(hex: coin.color ?? "#333333")
     }
     
+    // Conditional background logic
+    private var rowBackgroundColor: Color {
+        if colorScheme == .dark {
+            // Use a constant gray color for visibility in Dark Mode
+            return Color(uiColor: .gray).opacity(0.50)
+        } else {
+            // Use the coin's specific brand color in Light Mode
+            return coinBackgroundColor.opacity(0.15)
+        }
+    }
+    
+    //  Conditional border color
+    private var rowBorderColor: Color {
+        // We'll use the coin's brand color for the border in both modes
+        return coinBackgroundColor.opacity(0.15)
+    }
     
     private var chartData: LineChartData {
         // 1. Convert sparkline strings to Doubles
@@ -67,7 +86,7 @@ struct CoinListRow: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(coin.symbol)
                         .font(.headline)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                     Text(coin.name)
                         .font(.subheadline)
                         .foregroundColor(.gray)
@@ -89,7 +108,7 @@ struct CoinListRow: View {
             VStack(alignment: .trailing, spacing: 4) {
                 Text("$ \(coin.price?.toCurrencyFormat() ?? "N/A")")
                     .font(.headline)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                 HStack(spacing: 4) {
                     // Triangle for up/down
                     Image(systemName: Double(coin.change ?? "0") ?? 0 >= 0 ? "arrowtriangle.up.fill" : "arrowtriangle.down.fill")
@@ -104,8 +123,12 @@ struct CoinListRow: View {
         // 1. Padding inside the card
         .padding(.horizontal, 8)
         .padding(.vertical, 16)
-        .background(coinBackgroundColor.opacity(0.15))
+        .background(rowBackgroundColor)
         .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(rowBorderColor, lineWidth: 1)
+        )
         
         // 2.Padding outside the card (creates the margin)
         .padding(.horizontal, 8)
@@ -160,6 +183,5 @@ struct CoinListRow: View {
         ))
         Spacer()
     }
-    .background(Color.white)
-    .preferredColorScheme(.light)
+    .preferredColorScheme(.dark)
 }

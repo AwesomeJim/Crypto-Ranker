@@ -27,7 +27,7 @@ struct CoinDetailHeaderView: View {
             Text(viewModel.coinDetails?.name ?? "N/A")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
             
             Text(viewModel.coinDetails?.symbol ?? "N/A")
                 .font(.title3)

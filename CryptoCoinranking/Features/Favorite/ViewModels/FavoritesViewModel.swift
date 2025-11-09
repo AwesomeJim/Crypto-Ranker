@@ -14,16 +14,8 @@ final class FavoritesViewModel {
     private let networkService: NetworkServiceProtocol
     private let favoritesManager: FavoritesManagerProtocol
     
-    // Closure the ViewController will set to update its UI
-    var onUpdate: (() -> Void)?
-    
-    // The source of truth for the FavoritesViewController
-    private(set) var favoriteCoins: [Coin] = [] {
-        didSet {
-            onUpdate?()
-        }
-    }
-    
+    // Define observer with @Published for reactive updates
+    @Published private(set) var favoriteCoins: [Coin] = []
     @Published var appError: AppError?
     
     
@@ -64,7 +56,7 @@ final class FavoritesViewModel {
                 favoriteUUIDs.contains(coin.uuid)
             } ??    []
         } catch {
-            print("Failed to fetch and filter favorite coins: \(error.localizedDescription)")
+            logInfo("Failed to fetch and filter favorite coins: \(error.localizedDescription)")
             self.appError = AppError(title: "An Error Occurred", message: error.localizedDescription)
         }
     }
